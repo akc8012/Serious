@@ -57,9 +57,12 @@ public class Selector : MonoBehaviour
 
 	void SelectObject(GameObject obj)
 	{
-		obj.gameObject.GetComponent<Selectable>().FlyToPlayer();
-		GameObject.FindWithTag("MainCamera").GetComponent<MouseLook>().SetCanLook(false);
-		GameObject.FindWithTag("Player").GetComponent<Movement>().SetCanMove(false);
-		pointer.SetVisible(false);
+		if (!obj.gameObject.GetComponent<Selectable>().IsFlying)
+		{
+			obj.gameObject.GetComponent<Selectable>().FlyToPlayer();
+			GameObject.FindWithTag("MainCamera").GetComponent<MouseLook>().SetCanLook(false);
+			GameObject.FindWithTag("Player").GetComponent<Movement>().SetCanMove(false);
+			pointer.SetVisible(false);
+		}
 	}
 }

@@ -9,6 +9,7 @@ public class Selectable : MonoBehaviour
 
 	Camera cam;
 	bool isFlying = false;
+	public bool IsFlying { get { return isFlying; } }
 	float flySpeed = 3;
 	float distFromP = 2;
 	Vector3 startPos;

@@ -12,11 +12,13 @@ public class Movement : MonoBehaviour
 	[SerializeField]
 	float deceleration = 0.6f;
 
-
 	CharacterController controller;
 	Vector2 lastInput;
 	Vector3 lastForward;
 	Vector3 lastRight;
+
+	bool canMove = true;
+	public bool CanMove { get { return canMove; } }
 
 	void Start()
 	{
@@ -25,6 +27,9 @@ public class Movement : MonoBehaviour
 
 	void Update()
 	{
+		if (!canMove)
+			return;
+
 		Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 		bool isMoving = (input != Vector2.zero);
 		if (isMoving)
@@ -60,5 +65,13 @@ public class Movement : MonoBehaviour
 	{
 		speed -= deceleration;
 		speed = Mathf.Clamp(speed, 0, maxSpeed);
+	}
+
+	public void SetCanMove(bool enable)
+	{
+		canMove = enable;
+
+		if (!canMove)
+			speed = 0;
 	}
 }

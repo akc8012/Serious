@@ -10,7 +10,6 @@ public class TitleUI : MonoBehaviour
 
 	void Start()
 	{
-		startButt.Select();
 		startButt.onClick.AddListener(StartClicked);
 	}
 

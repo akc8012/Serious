@@ -17,6 +17,9 @@ public class MouseLook : MonoBehaviour
 	private Quaternion m_CameraTargetRot;
 	private bool m_cursorIsLocked = true;
 
+	private bool canLook = true;
+	public bool CanLook { get { return canLook; } }
+
 	public void Start()
 	{
 		Init(transform.root, transform);
@@ -30,12 +33,14 @@ public class MouseLook : MonoBehaviour
 
 	void Update()
 	{
-		LookRotation(transform.root, transform);
+		if (canLook)
+			LookRotation(transform.root, transform);
 	}
 
 	void FixedUpdate()
 	{
-		UpdateCursorLock();
+		if (canLook)
+			UpdateCursorLock();
 	}
 
 	public void LookRotation(Transform character, Transform camera)
@@ -111,4 +116,11 @@ public class MouseLook : MonoBehaviour
 		return q;
 	}
 
+	public void SetCanLook(bool enable)
+	{
+		canLook = enable;
+
+		Cursor.lockState = CursorLockMode.None;
+		Cursor.visible = true;
+	}
 }

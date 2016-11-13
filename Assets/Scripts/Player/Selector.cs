@@ -11,7 +11,7 @@ public class Selector : MonoBehaviour
 	{
 		cam = GetComponent<Camera>();
 		pointer = GameObject.FindWithTag("Pointer").GetComponent<Pointer>();
-		pSize = Pointer.size/2;
+		pSize = Pointer.size/2;		// must be in start to recieve after Pointer's Awake
 	}
 
 	void Update()
@@ -36,6 +36,9 @@ public class Selector : MonoBehaviour
 				if (objectHit.tag == "Selectable")
 				{
 					setHover = true;
+					if (Input.GetMouseButtonDown(0))
+						SelectObject(objectHit.gameObject);
+
 					break;
 				}
 			}
@@ -50,5 +53,13 @@ public class Selector : MonoBehaviour
 		{
 			pointer.OffHover();
 		}
+	}
+
+	void SelectObject(GameObject obj)
+	{
+		obj.gameObject.GetComponent<Selectable>().FlyToPlayer();
+		GameObject.FindWithTag("MainCamera").GetComponent<MouseLook>().SetCanLook(false);
+		GameObject.FindWithTag("Player").GetComponent<Movement>().SetCanMove(false);
+		pointer.SetVisible(false);
 	}
 }

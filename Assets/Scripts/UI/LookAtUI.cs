@@ -18,11 +18,16 @@ public class LookAtUI : MonoBehaviour
 		cancelButt.onClick.AddListener(CancelClicked);
 	}
 
+	void Update()
+	{
+		if (Input.GetKeyDown(KeyCode.Escape))
+			CancelClicked();
+	}
+
 	void HarmfulClicked()
 	{
 		if (!isVisible)
 			return;
-
 
 		if (lookingAt.IsHarmful)
 		{

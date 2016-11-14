@@ -7,6 +7,14 @@ public class Selectable : MonoBehaviour
 	bool isHarmful = true;
 	public bool IsHarmful { get { return isHarmful; } }
 
+	bool isSelected = false;
+	Vector2 firstDown = -Vector2.one;
+	Vector2 spinDir = Vector2.zero;
+	[SerializeField]
+	float spinSpeed = 1;
+	float spinMagSpeed = 1;
+
+	Rigidbody rb;
 	Camera cam;
 	bool isFlying = false;
 	public bool IsFlying { get { return isFlying; } }
@@ -17,14 +25,59 @@ public class Selectable : MonoBehaviour
 
 	void Start()
 	{
+		rb = GetComponent<Rigidbody>();
 		cam = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
 		startPos = transform.position;
 		startRot = transform.rotation;
+		ResetValues();
+	}
+
+	void ResetValues()
+	{
+		isSelected = false;
+		firstDown = -Vector2.one;
+		rb.angularVelocity = Vector3.zero;
+		spinDir = Vector2.zero;
+		rb.isKinematic = true;
 	}
 
 	void Update()
 	{
-		
+		if (isSelected)
+		{
+			if (Input.GetMouseButton(0))
+			{
+				if (firstDown == -Vector2.one)
+					firstDown = Input.mousePosition;
+				else
+				{
+					spinDir = (Vector2)Input.mousePosition - firstDown;
+
+					if (spinDir.magnitude > 20)
+					{
+						spinMagSpeed = spinDir.magnitude * 0.20f;
+						spinDir.Normalize();
+					}
+					else
+						spinDir = Vector2.zero;
+				}
+			}
+
+			if (Input.GetMouseButtonUp(0))
+			{
+				firstDown = -Vector2.one;
+				spinDir = Vector2.zero;
+			}
+		}
+	}
+
+	void FixedUpdate()
+	{
+		if (spinDir != Vector2.zero)
+		{
+			rb.AddTorque(cam.transform.up * -spinDir.x * spinMagSpeed * spinSpeed * Time.deltaTime);
+			rb.AddTorque(cam.transform.right * spinDir.y * spinMagSpeed * spinSpeed * Time.deltaTime);
+		}
 	}
 
 	public void FlyToPlayer()
@@ -42,9 +95,10 @@ public class Selectable : MonoBehaviour
 			return;
 
 		StartCoroutine(FlyToRoutine(startPos, startRot, false));
+		ResetValues();
 	}
 
-	IEnumerator FlyToRoutine(Vector3 pos, Quaternion rot, bool setMenu)
+	IEnumerator FlyToRoutine(Vector3 pos, Quaternion rot, bool setSelected)
 	{
 		isFlying = true;
 		Transform startPoint = transform;
@@ -62,7 +116,11 @@ public class Selectable : MonoBehaviour
 
 		isFlying = false;
 
-		if (setMenu)
+		if (setSelected)
+		{
 			GameObject.FindWithTag("MainCanvas").transform.Find("LookAt Menu").GetComponent<LookAtUI>().SetIsVisible(true, this);
+			isSelected = true;
+			rb.isKinematic = false;
+		}
 	}
 }

@@ -79,7 +79,8 @@ public class MouseLook : MonoBehaviour
 
 	private void InternalLockUpdate()
 	{
-		if (Input.GetKeyUp(KeyCode.Escape))
+		if (Input.GetKeyUp(KeyCode.BackQuote) && 
+			(Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)))
 		{
 			m_cursorIsLocked = false;
 		}
@@ -120,7 +121,7 @@ public class MouseLook : MonoBehaviour
 	{
 		canLook = enable;
 
-		Cursor.lockState = CursorLockMode.None;
-		Cursor.visible = true;
+		Cursor.lockState = enable ? CursorLockMode.Locked : CursorLockMode.None;
+		Cursor.visible = !enable;
 	}
 }

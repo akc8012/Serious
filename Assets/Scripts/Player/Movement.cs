@@ -10,7 +10,7 @@ public class Movement : MonoBehaviour
 	[SerializeField]
 	float acceleration = 0.3f;
 	[SerializeField]
-	float deceleration = 0.6f;
+	float deceleration = 0.7f;
 
 	CharacterController controller;
 	Vector2 lastInput;

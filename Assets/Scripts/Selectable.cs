@@ -106,9 +106,6 @@ public class Selectable : MonoBehaviour
 
 	public void FlyToStart()
 	{
-		if (isFlying)
-			return;
-
 		StartCoroutine(FlyToRoutine(startPos, startRot, false));
 		ResetValues();
 	}

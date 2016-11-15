@@ -5,6 +5,7 @@ public class Selector : MonoBehaviour
 {
 	Camera cam;
 	Pointer pointer;
+	GameObject lastObjRef;
 	int pSize;
 
 	void Start()
@@ -36,8 +37,17 @@ public class Selector : MonoBehaviour
 				if (objectHit.tag == "Selectable")
 				{
 					setHover = true;
+
+					if (lastObjRef != null && lastObjRef != objectHit.gameObject)
+					{
+						lastObjRef.GetComponent<Selectable>().OffHover();
+						objectHit.gameObject.GetComponent<Selectable>().OnHover();
+					}
+
+					lastObjRef = objectHit.gameObject;
+
 					if (Input.GetMouseButtonDown(0))
-						SelectObject(objectHit.gameObject);
+						SelectObject(lastObjRef);
 
 					break;
 				}
@@ -47,11 +57,19 @@ public class Selector : MonoBehaviour
 		if (setHover)
 		{
 			if (!pointer.IsHovering)
+			{
 				pointer.OnHover();
+				if (lastObjRef != null) lastObjRef.GetComponent<Selectable>().OnHover();
+			}
 		}
 		else if (pointer.IsHovering)
 		{
 			pointer.OffHover();
+			if (lastObjRef != null)
+			{
+				lastObjRef.GetComponent<Selectable>().OffHover();
+				lastObjRef = null;
+			}
 		}
 	}
 

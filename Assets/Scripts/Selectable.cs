@@ -16,19 +16,23 @@ public class Selectable : MonoBehaviour
 
 	Rigidbody rb;
 	Camera cam;
+	Renderer rend;
 	bool isFlying = false;
 	public bool IsFlying { get { return isFlying; } }
 	float flySpeed = 3;
 	float distFromP = 2;
 	Vector3 startPos;
 	Quaternion startRot;
+	Color startCol;
 
 	void Start()
 	{
 		rb = GetComponent<Rigidbody>();
 		cam = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
+		rend = GetComponent<Renderer>();
 		startPos = transform.position;
 		startRot = transform.rotation;
+		startCol = rend.material.color;
 		ResetValues();
 	}
 
@@ -39,6 +43,16 @@ public class Selectable : MonoBehaviour
 		rb.angularVelocity = Vector3.zero;
 		spinDir = Vector2.zero;
 		rb.isKinematic = true;
+	}
+
+	public void OnHover()
+	{
+		rend.material.SetColor("_Color", rend.material.GetColor("_Color") * 2);
+	}
+
+	public void OffHover()
+	{
+		rend.material.SetColor("_Color", startCol);
 	}
 
 	void Update()
@@ -85,6 +99,7 @@ public class Selectable : MonoBehaviour
 		if (isFlying)
 			return;
 
+		OffHover();
 		Vector3 loc = cam.ScreenToWorldPoint(new Vector3(Screen.width/2, Screen.height/2, distFromP));
 		StartCoroutine(FlyToRoutine(loc, Quaternion.LookRotation(cam.transform.forward), true));
 	}

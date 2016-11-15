@@ -40,10 +40,7 @@ public class LookAtUI : MonoBehaviour
 			lookingAt.FlyToStart();
 		}
 
-		GameObject.FindWithTag("MainCamera").GetComponent<MouseLook>().SetCanLook(true);
-		GameObject.FindWithTag("Player").GetComponent<Movement>().SetCanMove(true);
-		GameObject.FindWithTag("Pointer").GetComponent<Pointer>().SetVisible(true);
-		SetIsVisible(false);
+		LeaveLookAtUI();
 	}
 
 	void CancelClicked()
@@ -52,6 +49,11 @@ public class LookAtUI : MonoBehaviour
 			return;
 
 		lookingAt.FlyToStart();
+		LeaveLookAtUI();
+	}
+
+	void LeaveLookAtUI()
+	{
 		GameObject.FindWithTag("MainCamera").GetComponent<MouseLook>().SetCanLook(true);
 		GameObject.FindWithTag("Player").GetComponent<Movement>().SetCanMove(true);
 		GameObject.FindWithTag("Pointer").GetComponent<Pointer>().SetVisible(true);

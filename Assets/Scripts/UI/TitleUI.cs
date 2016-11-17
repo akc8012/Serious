@@ -15,6 +15,6 @@ public class TitleUI : MonoBehaviour
 
 	void StartClicked()
 	{
-		SceneManager.LoadScene("AndrewMain", LoadSceneMode.Single);
+		SceneManager.LoadScene(1, LoadSceneMode.Single);
 	}
 }

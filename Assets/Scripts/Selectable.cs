@@ -6,6 +6,10 @@ public class Selectable : MonoBehaviour
 	[SerializeField]
 	bool isHarmful = true;
 	public bool IsHarmful { get { return isHarmful; } }
+	[SerializeField]
+	float flySpeed = 3;
+	[SerializeField]
+	float distFromP = 2;
 
 	bool isSelected = false;
 	Vector2 firstDown = -Vector2.one;
@@ -19,8 +23,6 @@ public class Selectable : MonoBehaviour
 	Renderer rend;
 	bool isFlying = false;
 	public bool IsFlying { get { return isFlying; } }
-	float flySpeed = 3;
-	float distFromP = 2;
 	Vector3 startPos;
 	Quaternion startRot;
 	Color startCol;

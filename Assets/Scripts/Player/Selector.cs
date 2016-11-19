@@ -6,13 +6,15 @@ public class Selector : MonoBehaviour
 	Camera cam;
 	Pointer pointer;
 	GameObject lastObjRef;
+	ExitGameUI exitGameUI;
 	int pSize;
 
 	void Start()
 	{
 		cam = GetComponent<Camera>();
 		pointer = GameObject.FindWithTag("Pointer").GetComponent<Pointer>();
-		pSize = Pointer.size/2;		// must be in start to recieve after Pointer's Awake
+		pSize = Pointer.size/2;     // must be in start to recieve after Pointer's Awake
+		exitGameUI = GameObject.FindWithTag("MainCanvas").transform.Find("ExitGame Menu").GetComponent<ExitGameUI>();
 	}
 
 	void Update()
@@ -46,7 +48,7 @@ public class Selector : MonoBehaviour
 
 					lastObjRef = objectHit.gameObject;
 
-					if (Input.GetMouseButtonDown(0))
+					if (Input.GetMouseButtonDown(0) && !exitGameUI.IsVisible)
 						SelectObject(lastObjRef);
 
 					break;

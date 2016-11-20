@@ -16,21 +16,17 @@ public class ExitGameUI : MonoBehaviour
 	bool isVisible = false;
 	public bool IsVisible { get { return isVisible; } }
 
-	MouseLook mouseLook;
-
 	void Start()
 	{
 		canvasGroup = GetComponent<CanvasGroup>();
 		exitButton.onClick.AddListener(ExitRoom);
 		stayButton.onClick.AddListener(StayInRoom);
-		mouseLook = GameObject.FindWithTag("MainCamera").GetComponent<MouseLook>();
-
-		SetIsVisible(false);
 	}
 
 	void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.Escape) && !isVisible && mouseLook.CanLook)
+		if (Input.GetKeyDown(KeyCode.Escape) && !isVisible && 
+		GameStateManager.instance.CurrentState == GameStateManager.State.Free)
 			SetIsVisible(true);
 	}
 	
@@ -54,9 +50,7 @@ public class ExitGameUI : MonoBehaviour
 	{
 		isVisible = enable;
 		canvasGroup.alpha = enable ? 1 : 0;
-		mouseLook.SetCanLook(!enable);
-		GameObject.FindWithTag("Player").GetComponent<Movement>().SetCanMove(!enable);
-		GameObject.FindWithTag("Pointer").GetComponent<Pointer>().SetVisible(!enable);
+		GameStateManager.instance.SetState(enable ? GameStateManager.State.InMenu : GameStateManager.State.Free);
 		exitText.SetActive(!enable);
 	}
 }

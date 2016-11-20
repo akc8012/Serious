@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class ScoreManager : MonoBehaviour
@@ -19,8 +20,7 @@ public class ScoreManager : MonoBehaviour
 			Destroy(gameObject);
 
 		DontDestroyOnLoad(gameObject);
-
-		UnityEngine.SceneManagement.SceneManager.sceneLoaded += (scene, loadingMode) => { SceneLoaded(); };
+		SceneManager.sceneLoaded += (scene, loadingMode) => { SceneLoaded(); };
 	}
 
 	void SceneLoaded()

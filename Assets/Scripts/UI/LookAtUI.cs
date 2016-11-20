@@ -54,9 +54,7 @@ public class LookAtUI : MonoBehaviour
 
 	void LeaveLookAtUI()
 	{
-		GameObject.FindWithTag("MainCamera").GetComponent<MouseLook>().SetCanLook(true);
-		GameObject.FindWithTag("Player").GetComponent<Movement>().SetCanMove(true);
-		GameObject.FindWithTag("Pointer").GetComponent<Pointer>().SetVisible(true);
+		GameStateManager.instance.SetState(GameStateManager.State.Free);
 		SetIsVisible(false);
 	}
 

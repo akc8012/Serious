@@ -6,7 +6,6 @@ public class Selector : MonoBehaviour
 	Camera cam;
 	Pointer pointer;
 	GameObject lastObjRef;
-	ExitGameUI exitGameUI;
 	int pSize;
 
 	void Start()
@@ -14,7 +13,6 @@ public class Selector : MonoBehaviour
 		cam = GetComponent<Camera>();
 		pointer = GameObject.FindWithTag("Pointer").GetComponent<Pointer>();
 		pSize = Pointer.size/2;     // must be in start to recieve after Pointer's Awake
-		exitGameUI = GameObject.FindWithTag("MainCanvas").transform.Find("ExitGame Menu").GetComponent<ExitGameUI>();
 	}
 
 	void Update()
@@ -48,7 +46,8 @@ public class Selector : MonoBehaviour
 
 					lastObjRef = objectHit.gameObject;
 
-					if (Input.GetMouseButtonDown(0) && !exitGameUI.IsVisible)
+					if (Input.GetMouseButtonDown(0) && 
+					GameStateManager.instance.CurrentState == GameStateManager.State.Free)
 						SelectObject(lastObjRef);
 
 					break;
@@ -80,9 +79,7 @@ public class Selector : MonoBehaviour
 		if (!obj.gameObject.GetComponent<Selectable>().IsFlying)
 		{
 			obj.gameObject.GetComponent<Selectable>().FlyToPlayer();
-			GameObject.FindWithTag("MainCamera").GetComponent<MouseLook>().SetCanLook(false);
-			GameObject.FindWithTag("Player").GetComponent<Movement>().SetCanMove(false);
-			pointer.SetVisible(false);
+			GameStateManager.instance.SetState(GameStateManager.State.LookAt);
 		}
 	}
 }

@@ -9,30 +9,30 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1000011422259528}
+  m_RootGameObject: {fileID: 1000013435620796}
   m_IsPrefabParent: 1
---- !u!1 &1000011422259528
+--- !u!1 &1000013435620796
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 4000010252347560}
-  - 114: {fileID: 114000012398240084}
+  - 4: {fileID: 4000014106812304}
+  - 114: {fileID: 114000014168042438}
   m_Layer: 0
-  m_Name: Loader
+  m_Name: GameStateManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4000010252347560
+--- !u!4 &4000014106812304
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011422259528}
+  m_GameObject: {fileID: 1000013435620796}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -40,18 +40,14 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &114000012398240084
+--- !u!114 &114000014168042438
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011422259528}
+  m_GameObject: {fileID: 1000013435620796}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29d39c72465999b45a01f4c0732c2328, type: 3}
+  m_Script: {fileID: 11500000, guid: 947f3865171d4b54a93401619865311b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreManager: {fileID: 1000013147340604, guid: fe169d6da15e7af4885613ad868cacb5,
-    type: 2}
-  gameStateManager: {fileID: 1000013435620796, guid: b1b8d9a6768153940b1c6bc3b9facd4c,
-    type: 2}

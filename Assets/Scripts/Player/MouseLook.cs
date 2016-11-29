@@ -11,14 +11,17 @@ public class MouseLook : MonoBehaviour
 	public bool smooth;
 	public float smoothTime = 5f;
 	public bool lockCursor = true;
-
-
+	
 	private Quaternion m_CharacterTargetRot;
 	private Quaternion m_CameraTargetRot;
 	private bool m_cursorIsLocked = true;
 
 	private bool canLook = true;
 	public bool CanLook { get { return canLook; } }
+
+	private float m_CharacterLastRot;
+	private float m_CharacterDeltaRot;
+	public float DeltaRotation { get { return m_CharacterDeltaRot; } }
 
 	public void Start()
 	{
@@ -53,6 +56,17 @@ public class MouseLook : MonoBehaviour
 
 		if (clampVerticalRotation)
 			m_CameraTargetRot = ClampRotationAroundXAxis(m_CameraTargetRot);
+
+		m_CharacterDeltaRot = m_CharacterTargetRot.eulerAngles.y - m_CharacterLastRot;
+
+		if (Mathf.Abs(m_CharacterDeltaRot) > 100)
+			m_CharacterDeltaRot = m_CharacterLastRot;
+
+		//print("NEG: " + m_CharacterDeltaRot + ", LAST: " + m_CharacterLastRot);
+
+		m_CharacterLastRot = m_CharacterTargetRot.eulerAngles.y;
+
+		print(m_CharacterDeltaRot);
 
 		if (smooth)
 		{

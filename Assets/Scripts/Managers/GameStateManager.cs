@@ -13,6 +13,7 @@ public class GameStateManager : MonoBehaviour
 	MouseLook mouseLook;
 	Movement movement;
 	Pointer pointer;
+	ArrowHelperUI arrowHelperUI;
 	bool hasRefs = false;
 
 	void Awake()
@@ -41,13 +42,14 @@ public class GameStateManager : MonoBehaviour
 			mouseLook = GameObject.FindWithTag("MainCamera").GetComponent<MouseLook>();
 			movement = GameObject.FindWithTag("Player").GetComponent<Movement>();
 			pointer = GameObject.FindWithTag("Pointer").GetComponent<Pointer>();
+			arrowHelperUI = GameObject.FindWithTag("MainCanvas").transform.FindChild("ArrowHelpers").GetComponent<ArrowHelperUI>();
 		}
 		catch
 		{
 			return false;
 		}
 		
-		hasRefs = (mouseLook && movement && pointer);
+		hasRefs = (mouseLook && movement && pointer && arrowHelperUI);
 		return hasRefs;
 	}
 
@@ -62,6 +64,7 @@ public class GameStateManager : MonoBehaviour
 				mouseLook.SetCanLook(true);
 				movement.SetCanMove(true);
 				pointer.SetVisible(true);
+				arrowHelperUI.SetVisible(true);
 			break;
 
 			case State.LookAt:
@@ -69,7 +72,8 @@ public class GameStateManager : MonoBehaviour
 				mouseLook.SetCanLook(false);
 				movement.SetCanMove(false);
 				pointer.SetVisible(false);
-			break;
+				arrowHelperUI.SetVisible(false);
+				break;
 		}
 
 		return true;

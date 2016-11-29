@@ -59,14 +59,10 @@ public class MouseLook : MonoBehaviour
 
 		m_CharacterDeltaRot = m_CharacterTargetRot.eulerAngles.y - m_CharacterLastRot;
 
-		if (Mathf.Abs(m_CharacterDeltaRot) > 100)
-			m_CharacterDeltaRot = m_CharacterLastRot;
-
-		//print("NEG: " + m_CharacterDeltaRot + ", LAST: " + m_CharacterLastRot);
+		if (Mathf.Abs(m_CharacterDeltaRot) > 35)
+			m_CharacterDeltaRot = 0;
 
 		m_CharacterLastRot = m_CharacterTargetRot.eulerAngles.y;
-
-		print(m_CharacterDeltaRot);
 
 		if (smooth)
 		{

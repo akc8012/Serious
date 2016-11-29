@@ -42,17 +42,9 @@ public class ScoreManager : MonoBehaviour
 		
 	}
 
-	public void AddScore(int points)
+	public void ChangeScore(int points)
 	{
 		score += points;
-
-		if (scoreText)
-			scoreText.text = "Score: " + score.ToString("00000000");
-	}
-
-	public void LoseScore(int points)
-	{
-		score -= points;
 		if (score <= 0) score = 0;
 
 		if (scoreText)

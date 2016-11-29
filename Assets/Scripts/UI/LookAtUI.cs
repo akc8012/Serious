@@ -32,11 +32,11 @@ public class LookAtUI : MonoBehaviour
 		if (lookingAt.IsHarmful)
 		{
 			Destroy(lookingAt.gameObject);
-			ScoreManager.instance.AddScore(10);
+			ScoreManager.instance.ChangeScore(10);
 		}
 		else
 		{
-			ScoreManager.instance.LoseScore(10);
+			ScoreManager.instance.ChangeScore(-10);
 			lookingAt.FlyToStart();
 		}
 

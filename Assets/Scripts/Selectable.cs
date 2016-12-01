@@ -10,6 +10,8 @@ public class Selectable : MonoBehaviour
 	float flySpeed = 3;
 	[SerializeField]
 	float distFromP = 2;
+	[SerializeField]
+	Vector3 rotationStart;
 
 	bool isSelected = false;
 	Vector2 firstDown = -Vector2.one;
@@ -31,10 +33,10 @@ public class Selectable : MonoBehaviour
 	{
 		rb = GetComponent<Rigidbody>();
 		cam = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
-		rend = GetComponent<Renderer>();
+		//rend = GetComponent<Renderer>();
 		startPos = transform.position;
 		startRot = transform.rotation;
-		startCol = rend.material.color;
+		//startCol = rend.material.color;
 		ResetValues();
 	}
 
@@ -49,12 +51,12 @@ public class Selectable : MonoBehaviour
 
 	public void OnHover()
 	{
-		rend.material.SetColor("_Color", rend.material.GetColor("_Color") * 2);
+		//rend.material.SetColor("_Color", rend.material.GetColor("_Color") * 2);
 	}
 
 	public void OffHover()
 	{
-		rend.material.SetColor("_Color", startCol);
+		//rend.material.SetColor("_Color", startCol);
 	}
 
 	void Update()
@@ -103,7 +105,7 @@ public class Selectable : MonoBehaviour
 
 		OffHover();
 		Vector3 loc = cam.ScreenToWorldPoint(new Vector3(Screen.width/2, Screen.height/2, distFromP));
-		StartCoroutine(FlyToRoutine(loc, Quaternion.LookRotation(cam.transform.forward), true));
+		StartCoroutine(FlyToRoutine(loc, Quaternion.LookRotation(cam.transform.forward) * Quaternion.Euler(rotationStart), true));
 	}
 
 	public void FlyToStart()

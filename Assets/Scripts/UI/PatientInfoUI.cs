@@ -31,7 +31,7 @@ public class PatientInfoUI : MonoBehaviour
         Text aText = transform.Find("Age").GetComponent<Text>();
         Text sText = transform.Find("Sex").GetComponent<Text>();
 
-        int rnd = Random.Range(0, patientNum-1);
+        int rnd = Random.Range(0, patientNum);
 
         img.sprite = patient[rnd];
         rText.text = pReason[rnd];

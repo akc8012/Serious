@@ -8,12 +8,19 @@ public class LookAtUI : MonoBehaviour
 	Button harmfulButt;
 	[SerializeField]
 	Button cancelButt;
+	[SerializeField]
+	Text pointsText;
 
+	CanvasGroup canvasGroup;
 	Selectable lookingAt;
 	bool isVisible = false;
 
+	Color green = Color.green;
+	Color red = new Color(1, 0.3f, 0.3f, 1);
+
 	void Start()
 	{
+		canvasGroup = GetComponent<CanvasGroup>();
 		harmfulButt.onClick.AddListener(HarmfulClicked);
 		cancelButt.onClick.AddListener(CancelClicked);
 	}
@@ -33,11 +40,17 @@ public class LookAtUI : MonoBehaviour
 		{
 			Destroy(lookingAt.gameObject);
 			ScoreManager.instance.ChangeScore(10);
+			pointsText.color = green;
+			pointsText.text = "+10 points";
+			StartCoroutine(ShowPointsTextForABit());
 		}
 		else
 		{
 			ScoreManager.instance.ChangeScore(-10);
 			lookingAt.FlyToStart();
+			pointsText.color = red;
+			pointsText.text = "-10 points";
+			StartCoroutine(ShowPointsTextForABit());
 		}
 
 		LeaveLookAtUI();
@@ -61,9 +74,17 @@ public class LookAtUI : MonoBehaviour
 	public void SetIsVisible(bool enable, Selectable _lookingAt = null)
 	{
 		isVisible = enable;
-		gameObject.SetActive(enable);
 
 		if (_lookingAt)
 			lookingAt = _lookingAt;
+
+		canvasGroup.alpha = enable ? 1 : 0;
+	}
+
+	IEnumerator ShowPointsTextForABit()
+	{
+		pointsText.gameObject.SetActive(true);
+		yield return new WaitForSeconds(1);
+		pointsText.gameObject.SetActive(false);
 	}
 }

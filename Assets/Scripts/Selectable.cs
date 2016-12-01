@@ -22,7 +22,7 @@ public class Selectable : MonoBehaviour
 
 	Rigidbody rb;
 	Camera cam;
-	Renderer rend;
+	Renderer[] rends;
 	bool isFlying = false;
 	public bool IsFlying { get { return isFlying; } }
 	Vector3 startPos;
@@ -33,10 +33,11 @@ public class Selectable : MonoBehaviour
 	{
 		rb = GetComponent<Rigidbody>();
 		cam = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
-		//rend = GetComponent<Renderer>();
+		rends = GetComponentsInChildren<Renderer>();
+
 		startPos = transform.position;
 		startRot = transform.rotation;
-		//startCol = rend.material.color;
+		startCol = rends[0].material.color;
 		ResetValues();
 	}
 
@@ -51,12 +52,14 @@ public class Selectable : MonoBehaviour
 
 	public void OnHover()
 	{
-		//rend.material.SetColor("_Color", rend.material.GetColor("_Color") * 2);
+		for (int i = 0; i < rends.Length; i++)
+			rends[i].material.SetColor("_Color", rends[i].material.GetColor("_Color") * 2);
 	}
 
 	public void OffHover()
 	{
-		//rend.material.SetColor("_Color", startCol);
+		for (int i = 0; i < rends.Length; i++)
+			rends[i].material.SetColor("_Color", startCol);
 	}
 
 	void Update()

@@ -96,7 +96,7 @@ public class ArrowHelperUI : MonoBehaviour
 	public void SetVisible(bool enable)
 	{
 		doCount = enable;
-		turningCounter = 0;
+		// put turningCounter = 0 here if you want to reset the arrows after selecting an object
 		canvasGroup.alpha = enable ? 1 : 0;
 	}
 }

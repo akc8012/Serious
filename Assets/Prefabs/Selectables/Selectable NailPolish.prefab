@@ -139,7 +139,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011615998680}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.18, y: 0.18, z: 0.18}
@@ -157,5 +157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isHarmful: 0
   flySpeed: 3
-  distFromP: 0.7
-  spinSpeed: 1
+  distFromCamera: 0.7
+  distToActivate: 2
+  rotationStart: {x: 0, y: 0, z: 0}
+  spinSpeed: 0.75

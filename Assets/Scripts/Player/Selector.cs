@@ -3,6 +3,9 @@ using System.Collections;
 
 public class Selector : MonoBehaviour
 {
+	[SerializeField]
+	float maxDistance = 4;
+
 	Camera cam;
 	Pointer pointer;
 	GameObject lastObjRef;
@@ -34,7 +37,7 @@ public class Selector : MonoBehaviour
 			{
 				Transform objectHit = hit.transform;
 
-				if (objectHit.tag == "Selectable")
+				if (objectHit.tag == "Selectable" && Vector3.Distance(transform.position, objectHit.position) < maxDistance)
 				{
 					setHover = true;
 

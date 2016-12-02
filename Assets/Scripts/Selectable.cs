@@ -9,7 +9,7 @@ public class Selectable : MonoBehaviour
 	[SerializeField]
 	float flySpeed = 3;
 	[SerializeField]
-	float distFromP = 2;
+	float distFromCamera = 1;
 	[SerializeField]
 	Vector3 rotationStart;
 
@@ -96,8 +96,8 @@ public class Selectable : MonoBehaviour
 	{
 		if (spinDir != Vector2.zero)
 		{
-			rb.AddTorque(cam.transform.up * -spinDir.x * spinMagSpeed * spinSpeed * Time.deltaTime);
-			rb.AddTorque(cam.transform.right * spinDir.y * spinMagSpeed * spinSpeed * Time.deltaTime);
+			rb.AddTorque(cam.transform.up * -spinDir.x * spinMagSpeed * spinSpeed * Time.deltaTime, ForceMode.Impulse);
+			rb.AddTorque(cam.transform.right * spinDir.y * spinMagSpeed * spinSpeed * Time.deltaTime, ForceMode.Impulse);
 		}
 	}
 
@@ -107,7 +107,7 @@ public class Selectable : MonoBehaviour
 			return;
 
 		OffHover();
-		Vector3 loc = cam.ScreenToWorldPoint(new Vector3(Screen.width/2, Screen.height/2, distFromP));
+		Vector3 loc = cam.ScreenToWorldPoint(new Vector3(Screen.width/2, Screen.height/2, distFromCamera));
 		StartCoroutine(FlyToRoutine(loc, Quaternion.LookRotation(cam.transform.forward) * Quaternion.Euler(rotationStart), true));
 	}
 

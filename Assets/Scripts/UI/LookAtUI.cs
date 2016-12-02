@@ -27,7 +27,7 @@ public class LookAtUI : MonoBehaviour
 
 	void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.Escape))
+		if (Input.GetKeyUp(KeyCode.Escape))
 			CancelClicked();
 	}
 

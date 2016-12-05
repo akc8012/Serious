@@ -4,35 +4,43 @@ using System.Collections;
 public class PlayerCrouch : MonoBehaviour
 {
 	[SerializeField]
+	float crouchDist = 0.7f;
+	[SerializeField]
 	float crouchSpeed = 3;
 	[SerializeField]
 	float uncrouchSpeed = 3;
 
 	float origY;
 	float crouchY;
-	bool uncrounching = false;
+	enum State { Nothing, Crouching, Uncrouching }
+	State crouchState = State.Nothing;
+	State lastState = State.Nothing;
+	public bool IsCrouching { get { return crouchState == State.Crouching; } }
+	Movement movement;
 
 	void Start()
 	{
+		movement = GetComponentInParent<Movement>();
 		origY = transform.position.y;
-		crouchY = origY - 0.7f;
+		crouchY = origY - crouchDist;
 	}
 
 	void Update()
 	{
 		if (Input.GetKey(KeyCode.C))
 		{
-			if (uncrounching)
-			{
+			if (crouchState == State.Uncrouching)
 				StopCoroutine("UnCrouch");
-				uncrounching = false;
-			}
+
+			crouchState = State.Crouching;
 			Crouch();
 		}
-		if (Input.GetKeyUp(KeyCode.C))
-		{
+		else if (Input.GetKeyUp(KeyCode.C))
 			StartCoroutine("UnCrouch");
-		}
+
+		if (lastState != crouchState)
+			movement.SetCrouchSpeed(IsCrouching);
+		lastState = crouchState;
 	}
 
 	void Crouch()
@@ -43,7 +51,7 @@ public class PlayerCrouch : MonoBehaviour
 
 	IEnumerator UnCrouch()
 	{
-		uncrounching = true;
+		crouchState = State.Uncrouching;
 		while (Mathf.Abs(transform.position.y - origY) > 0.01f)
 		{
 			transform.position = Vector3.Lerp(transform.position,
@@ -52,6 +60,6 @@ public class PlayerCrouch : MonoBehaviour
 			yield return null;
 		}
 		transform.position = new Vector3(transform.position.x, origY, transform.position.z);
-		uncrounching = false;
+		crouchState = State.Nothing;
 	}
 }

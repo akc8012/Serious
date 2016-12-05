@@ -45,6 +45,7 @@ GameObject:
   - 81: {fileID: 81000012967265438}
   - 114: {fileID: 114000012253106582}
   - 114: {fileID: 114000013285668750}
+  - 114: {fileID: 114000013651354044}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -58,8 +59,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012981533158}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -7, y: 6.194, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
   m_Children:
@@ -194,6 +195,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxDistance: 6
+--- !u!114 &114000013651354044
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000014000212542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32add4d2c54beda4d94d2f56a3ae40c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crouchSpeed: 3
+  uncrouchSpeed: 6
 --- !u!114 &114000013949944882
 MonoBehaviour:
   m_ObjectHideFlags: 1

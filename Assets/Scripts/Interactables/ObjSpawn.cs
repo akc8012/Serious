@@ -3,12 +3,11 @@ using System.Collections;
 
 public class ObjSpawn : MonoBehaviour
 {
-    const int spawnNum = 2;
-    public GameObject[] spawnable = new GameObject[spawnNum];
+    public GameObject[] spawnable;
 
     void Start ()
     {
-        int rnd = Random.Range(0, spawnNum);
+        int rnd = Random.Range(0, spawnable.Length);
 
         Instantiate(spawnable[rnd], transform.position, transform.rotation);
     }

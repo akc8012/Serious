@@ -37,14 +37,6 @@ public class Moveable : MonoBehaviour
 		nextPoint = endPoint;
 	}
 
-	void Update()
-	{
-		if (Input.GetKeyDown(KeyCode.Space))
-			MoveToEnd();
-		if (Input.GetKeyDown(KeyCode.P))
-			MoveToStart();
-	}
-
 	public void MoveToNext()
 	{
 		if (isMoving) return;
@@ -72,13 +64,21 @@ public class Moveable : MonoBehaviour
 	IEnumerator MoveTo(Point target)
 	{
 		isMoving = true;
-		while (Vector3.Distance(transform.position, target.position) > 0.001f)
+		Transform startPoint = transform;
+		float dist = Vector3.Distance(transform.position, target.position);
+		float duration = dist / speed;
+		float t = 0;
+
+		while (Vector3.Distance(transform.position, target.position) > 0.01f)
 		{
-			transform.position = Vector3.MoveTowards(transform.position, target.position, Time.deltaTime * speed);
+			t += Time.deltaTime / duration;
+			transform.position = Vector3.Lerp(startPoint.position, target.position, t);
+			transform.rotation = Quaternion.Slerp(startPoint.rotation, target.rotation, t);
 			yield return null;
 		}
 
 		transform.position = target.position;
+		transform.rotation = target.rotation;
 		isMoving = false;
 	}
 }

@@ -68,6 +68,7 @@ GameObject:
   - 64: {fileID: 64000010917208022}
   - 23: {fileID: 23000012851908800}
   - 114: {fileID: 114000012610235082}
+  - 114: {fileID: 114000011680860934}
   m_Layer: 0
   m_Name: TextureQuad
   m_TagString: Moveable
@@ -658,6 +659,17 @@ MeshCollider:
   serializedVersion: 2
   m_Convex: 0
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &114000011680860934
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011846937834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4c2484ec82d47b449343d39496b3b0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114000012610235082
 MonoBehaviour:
   m_ObjectHideFlags: 1

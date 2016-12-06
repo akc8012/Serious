@@ -40,6 +40,7 @@ GameObject:
   - 65: {fileID: 65000013654143086}
   - 114: {fileID: 114000014270603244}
   - 54: {fileID: 54000014088794630}
+  - 114: {fileID: 114000011484470074}
   m_Layer: 0
   m_Name: Selectable Lighter
   m_TagString: Selectable
@@ -144,6 +145,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.1, y: 0.1, z: 0.25}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114000011484470074
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013849092140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4c2484ec82d47b449343d39496b3b0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114000014270603244
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -158,6 +170,5 @@ MonoBehaviour:
   isHarmful: 1
   flySpeed: 3
   distFromCamera: 0.7
-  distToActivate: 2
   rotationStart: {x: -90, y: 0, z: 0}
   spinSpeed: 0.75

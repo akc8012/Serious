@@ -44,8 +44,8 @@ public class Selector : MonoBehaviour
 
 					if (lastObjRef != null && lastObjRef != objectHit.gameObject)
 					{
-						lastObjRef.GetComponent<Selectable>().OffHover();
-						objectHit.gameObject.GetComponent<Selectable>().OnHover();
+						lastObjRef.GetComponent<Glowable>().OffHover();
+						objectHit.gameObject.GetComponent<Glowable>().OnHover();
 					}
 
 					lastObjRef = objectHit.gameObject;
@@ -72,8 +72,8 @@ public class Selector : MonoBehaviour
 			if (!pointer.IsHovering)
 			{
 				pointer.OnHover();
-				if (lastObjRef != null && lastObjRef.tag == "Selectable")
-					lastObjRef.GetComponent<Selectable>().OnHover();
+				if (lastObjRef != null)
+					lastObjRef.GetComponent<Glowable>().OnHover();
 			}
 		}
 		else if (pointer.IsHovering)
@@ -81,7 +81,7 @@ public class Selector : MonoBehaviour
 			pointer.OffHover();
 			if (lastObjRef != null)
 			{
-				if (lastObjRef.tag == "Selectable") lastObjRef.GetComponent<Selectable>().OffHover();
+				lastObjRef.GetComponent<Glowable>().OffHover();
 				lastObjRef = null;
 			}
 		}

@@ -37,7 +37,8 @@ public class Selector : MonoBehaviour
 			{
 				Transform objectHit = hit.transform;
 
-				if (objectHit.tag == "Selectable" && Vector3.Distance(transform.position, objectHit.position) < maxDistance)
+				if ((objectHit.tag == "Selectable" || objectHit.tag == "Moveable") && 
+					Vector3.Distance(transform.position, objectHit.position) < maxDistance)
 				{
 					setHover = true;
 
@@ -49,10 +50,18 @@ public class Selector : MonoBehaviour
 
 					lastObjRef = objectHit.gameObject;
 
-					if (Input.GetMouseButtonDown(0) && 
-					GameStateManager.instance.CurrentState == GameStateManager.State.Free)
-						SelectObject(lastObjRef);
-
+					if (objectHit.tag == "Selectable")
+					{
+						if (Input.GetMouseButtonDown(0) &&
+						GameStateManager.instance.CurrentState == GameStateManager.State.Free)
+							SelectObject(lastObjRef);
+					}
+					if (objectHit.tag == "Moveable")
+					{
+						if (Input.GetMouseButtonDown(0) &&
+						GameStateManager.instance.CurrentState == GameStateManager.State.Free)
+							SetMoveableObject(lastObjRef);
+					}
 					break;
 				}
 			}
@@ -63,7 +72,8 @@ public class Selector : MonoBehaviour
 			if (!pointer.IsHovering)
 			{
 				pointer.OnHover();
-				if (lastObjRef != null) lastObjRef.GetComponent<Selectable>().OnHover();
+				if (lastObjRef != null && lastObjRef.tag == "Selectable")
+					lastObjRef.GetComponent<Selectable>().OnHover();
 			}
 		}
 		else if (pointer.IsHovering)
@@ -71,7 +81,7 @@ public class Selector : MonoBehaviour
 			pointer.OffHover();
 			if (lastObjRef != null)
 			{
-				lastObjRef.GetComponent<Selectable>().OffHover();
+				if (lastObjRef.tag == "Selectable") lastObjRef.GetComponent<Selectable>().OffHover();
 				lastObjRef = null;
 			}
 		}
@@ -79,10 +89,18 @@ public class Selector : MonoBehaviour
 
 	void SelectObject(GameObject obj)
 	{
-		if (!obj.gameObject.GetComponent<Selectable>().IsFlying)
+		if (!obj.GetComponent<Selectable>().IsFlying)
 		{
-			obj.gameObject.GetComponent<Selectable>().FlyToPlayer();
+			obj.GetComponent<Selectable>().FlyToPlayer();
 			GameStateManager.instance.SetState(GameStateManager.State.LookAt);
+		}
+	}
+
+	void SetMoveableObject(GameObject obj)
+	{
+		if (!obj.GetComponent<Moveable>().IsMoving)
+		{
+			obj.GetComponent<Moveable>().MoveToNext();
 		}
 	}
 }

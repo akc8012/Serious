@@ -7,6 +7,7 @@ TagManager:
   - MainCanvas
   - Pointer
   - Selectable
+  - Moveable
   layers:
   - Default
   - TransparentFX

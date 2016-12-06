@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ObjSpawnL : MonoBehaviour
+public class ObjSpawn : MonoBehaviour
 {
     const int spawnNum = 2;
     public GameObject[] spawnable = new GameObject[spawnNum];
@@ -10,15 +10,7 @@ public class ObjSpawnL : MonoBehaviour
     {
         int rnd = Random.Range(0, spawnNum);
 
-        if (rnd == 0)
-        {
-            Instantiate(spawnable[0], transform.position, transform.rotation);
-        }
-
-        if (rnd == 1)
-        {
-            Instantiate(spawnable[1], transform.position, transform.rotation);
-        }
+        Instantiate(spawnable[rnd], transform.position, transform.rotation);
     }
 	
 	void Update ()

@@ -27,6 +27,9 @@ public class PlayerCrouch : MonoBehaviour
 
 	void Update()
 	{
+		if (GameStateManager.instance.CurrentState != GameStateManager.State.Free)
+			return;
+
 		if (Input.GetKey(KeyCode.C))
 		{
 			if (crouchState == State.Uncrouching)
@@ -35,7 +38,7 @@ public class PlayerCrouch : MonoBehaviour
 			crouchState = State.Crouching;
 			Crouch();
 		}
-		else if (Input.GetKeyUp(KeyCode.C))
+		else if (Input.GetKeyUp(KeyCode.C) || crouchState == State.Crouching)
 			StartCoroutine("UnCrouch");
 
 		if (lastState != crouchState)

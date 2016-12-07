@@ -4,12 +4,15 @@ using System.Collections;
 public class Glowable : MonoBehaviour
 {
 	Renderer[] rends;
-	Color startCol;
+	Color[] startCols;
 
 	void Start()
 	{
 		rends = GetComponentsInChildren<Renderer>();
-		startCol = rends[0].material.color;
+		startCols = new Color[rends.Length];
+
+		for (int i = 0; i < rends.Length; i++)
+			startCols[i] = rends[i].material.color;
 	}
 
 	public void OnHover()
@@ -21,6 +24,6 @@ public class Glowable : MonoBehaviour
 	public void OffHover()
 	{
 		for (int i = 0; i < rends.Length; i++)
-			rends[i].material.SetColor("_Color", startCol);
+			rends[i].material.SetColor("_Color", startCols[i]);
 	}
 }

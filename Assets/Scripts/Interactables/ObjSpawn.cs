@@ -9,7 +9,8 @@ public class ObjSpawn : MonoBehaviour
     {
         int rnd = Random.Range(0, spawnable.Length);
 
-        Instantiate(spawnable[rnd], transform.position, transform.rotation);
+        GameObject obj = (GameObject)Instantiate(spawnable[rnd], transform.position, transform.rotation);
+		obj.GetComponent<Selectable>().SetFloorPoint(transform.position);
     }
 	
 	void Update ()

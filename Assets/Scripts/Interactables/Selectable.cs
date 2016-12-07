@@ -39,6 +39,16 @@ public class Selectable : MonoBehaviour
 		ResetValues();
 	}
 
+	public void SetFloorPoint(Vector3 target)
+	{
+		Transform spawnFloor = transform.Find("SpawnFloor");
+		if (spawnFloor)
+		{
+			Vector3 distance = target - spawnFloor.position;
+			transform.position += distance;
+		}
+	}
+
 	void ResetValues()
 	{
 		isSelected = false;

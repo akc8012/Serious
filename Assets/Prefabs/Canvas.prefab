@@ -1637,29 +1637,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pReason:
-  - Reason 1
-  - Reason 2
-  - Reason 3
+  - Self Harm
+  - Eating Disorder
+  - Depression
   pLikes:
-  - I like music, but nothing too loud.
-  - I like to read!
-  - The rain sooths me.
+  - Listens to rock and alternative music and dislikes Country and rap.
+  - Enjoys playing and watching Sports
+  - Likes to read books, Doesn't like loud noises
   pBg:
-  - Background 1
-  - Background 2
-  - Background 3
+  - Comes from a single parent home with 1 siblings
+  - Parents are divorced, currently living with mother
+  - Is an only child
   pOther:
-  - misc 1
-  - misc 2
-  - misc 3
+  - Doesn't like people touching his belongings
+  - Is an artist and likes to draw
+  - Refuses to part with her stuffed bear
   pName:
-  - Boy 1
-  - Girl 1
-  - Girl 2
+  - John Doe
+  - Emily Smith
+  - Elizabeth Taylor
   pAge:
-  - 13
-  - 15
-  - 9
+  - 11
+  - 14
+  - 8
   pSex:
   - M
   - F

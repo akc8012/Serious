@@ -7,10 +7,15 @@ public class ObjSpawn : MonoBehaviour
 
     void Start ()
     {
-        int rnd = Random.Range(0, spawnable.Length);
+        int ifSpawn = Random.Range(0, 4);
 
-        GameObject obj = (GameObject)Instantiate(spawnable[rnd], transform.position, transform.rotation);
-		obj.GetComponent<Selectable>().SetFloorPoint(transform.position);
+        if (ifSpawn >= 2)
+        {
+            int rnd = Random.Range(0, spawnable.Length);
+
+            GameObject obj = (GameObject)Instantiate(spawnable[rnd], transform.position, transform.rotation);
+            obj.GetComponent<Selectable>().SetFloorPoint(transform.position);
+        }
     }
 	
 	void Update ()

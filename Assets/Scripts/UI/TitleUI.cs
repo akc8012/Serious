@@ -17,4 +17,10 @@ public class TitleUI : MonoBehaviour
 	{
 		SceneManager.LoadScene(1, LoadSceneMode.Single);
 	}
+
+	void Update()
+	{
+		if (Input.GetKeyDown(KeyCode.Escape))
+			Application.Quit();
+	}
 }

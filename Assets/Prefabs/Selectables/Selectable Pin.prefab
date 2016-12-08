@@ -188,7 +188,7 @@ MonoBehaviour:
   isHarmful: 1
   flySpeed: 3
   distFromCamera: 0.5
-  rotationStart: {x: 0, y: 0, z: 0}
+  rotationStart: {x: -90, y: 0, z: 0}
   spinSpeed: 0.75
 --- !u!114 &114000014271310824
 MonoBehaviour:

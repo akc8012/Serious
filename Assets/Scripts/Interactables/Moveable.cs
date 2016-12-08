@@ -5,6 +5,7 @@ public class Moveable : MonoBehaviour
 {
 	[SerializeField]
 	bool modifyScale = true;
+	GameObject behindFrame;
 
 	struct Point
 	{
@@ -53,16 +54,19 @@ public class Moveable : MonoBehaviour
 		if (isMoving) return;
 		StartCoroutine(MoveTo(endPoint));
 		nextPoint = Points.Start;
+
+		if (behindFrame)
+			behindFrame.SetActive(true);
 	}
 
 	public void MoveToStart()
 	{
 		if (isMoving) return;
-		StartCoroutine(MoveTo(startPoint));
+		StartCoroutine(MoveTo(startPoint, true));
 		nextPoint = Points.End;
 	}
 
-	IEnumerator MoveTo(Point target)
+	IEnumerator MoveTo(Point target, bool turnOffBehindFrame = false)
 	{
 		isMoving = true;
 		Transform startPoint = transform;
@@ -82,5 +86,13 @@ public class Moveable : MonoBehaviour
 		transform.position = target.position;
 		transform.rotation = target.rotation;
 		isMoving = false;
+
+		if (behindFrame && turnOffBehindFrame)
+			behindFrame.SetActive(false);
+	}
+
+	public void SetBehindFrame(GameObject behindFrame)
+	{
+		this.behindFrame = behindFrame;
 	}
 }

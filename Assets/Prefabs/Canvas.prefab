@@ -1639,23 +1639,23 @@ MonoBehaviour:
   pReason:
   - Reason 1
   - Reason 2
-  - Reason3
+  - Reason 3
   pLikes:
-  - I like Mario and chickie tenders
-  - I like the color orange
-  - I like the rain, I fear sharks
+  - I like music, but nothing too loud.
+  - I like to read!
+  - The rain sooths me.
   pBg:
   - Background 1
   - Background 2
   - Background 3
   pOther:
-  - Headphones are cool
-  - Cats are nice!
-  - Purple Hair!
+  - misc 1
+  - misc 2
+  - misc 3
   pName:
-  - Andrew
-  - Crystal
-  - Girl 3
+  - Boy 1
+  - Girl 1
+  - Girl 2
   pAge:
   - 13
   - 15

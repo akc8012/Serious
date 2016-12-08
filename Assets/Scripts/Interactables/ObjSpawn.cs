@@ -15,7 +15,8 @@ public class ObjSpawn : MonoBehaviour
 
             GameObject obj = (GameObject)Instantiate(spawnable[rnd], transform.position, transform.rotation);
             obj.GetComponent<Selectable>().SetFloorPoint(transform.position);
-            
+
+            obj.transform.parent = GameObject.Find("Selectables").transform;
         }
     }
 	

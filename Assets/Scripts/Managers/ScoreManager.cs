@@ -7,9 +7,7 @@ public class ScoreManager : MonoBehaviour
 {
 	public static ScoreManager instance = null;
 
-	[SerializeField]
 	int score = 0;
-
 	Text scoreText;
 
 	void Awake()

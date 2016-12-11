@@ -24,7 +24,7 @@ public class ArrowHelperUI : MonoBehaviour
 
 	float turningCounter;
 	bool doCount = true;
-	const int DIST = 60;
+	const int DIST = 80;
 
 	void Awake()
 	{
@@ -56,7 +56,7 @@ public class ArrowHelperUI : MonoBehaviour
 
 	IEnumerator ArrowFinish(int whichText)
 	{
-		ScoreManager.instance.ChangeScore(whichText * 10);
+		ScoreManager.instance.ChangeScore(whichText * 3);
 		Text changeText = whichText > 0 ? greenText : redText;
 		StartCoroutine(GlowArrow(whichText > 0 ? greenArrowGlow : redArrowGlow));
 

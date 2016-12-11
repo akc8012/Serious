@@ -1,20 +1,28 @@
 fileFormatVersion: 2
-guid: fbed50076e80aec4980b3b9608ac7d39
-timeCreated: 1481034213
+guid: 044824b1af7dc4549b70b75bedd7fbc6
+timeCreated: 1481480061
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: ScissorsB
-    400000: //RootNode
-    400002: ScissorsB
-    2300000: //RootNode
-    2300002: ScissorsB
-    3300000: //RootNode
-    3300002: ScissorsB
-    4300000: ScissorsA
-    4300002: ScissorsB
+    100000: bend1Handle
+    100002: //RootNode
+    100004: pCube1
+    100006: pCube2
+    100008: pCube3
+    100010: transform1
+    100012: transform2
+    400000: bend1Handle
+    400002: //RootNode
+    400004: pCube1
+    400006: pCube2
+    400008: pCube3
+    400010: transform1
+    400012: transform2
+    2300000: pCube3
+    3300000: pCube3
+    4300000: pCube3
+    9500000: //RootNode
   materials:
     importMaterials: 1
     materialName: 0
@@ -39,7 +47,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 1.8
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
@@ -73,7 +81,7 @@ ModelImporter:
     rootMotionBoneName: 
     hasTranslationDoF: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

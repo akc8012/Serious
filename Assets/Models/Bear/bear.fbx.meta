@@ -1,25 +1,42 @@
 fileFormatVersion: 2
-guid: 79321f9218148c643ba16ac5209f1246
-timeCreated: 1480433177
+guid: f03659eceddf0104989417aa8034a73a
+timeCreated: 1481479278
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
-    100002: CoverBack
-    100004: CoverFront
+    100002: pCylinder1
+    100004: pCylinder2
+    100006: pCylinder3
+    100008: pSphere1
+    100010: pSphere2
+    100012: pSphere3
+    100014: pSphere4
+    100016: transform1
+    100018: transform2
+    100020: transform3
+    100022: transform4
+    100024: transform5
+    100026: transform6
     400000: //RootNode
-    400002: CoverBack
-    400004: CoverFront
-    2300000: //RootNode
-    2300002: CoverBack
-    2300004: CoverFront
-    3300000: //RootNode
-    3300002: CoverBack
-    3300004: CoverFront
-    4300000: Spine
-    4300002: CoverBack
-    4300004: CoverFront
+    400002: pCylinder1
+    400004: pCylinder2
+    400006: pCylinder3
+    400008: pSphere1
+    400010: pSphere2
+    400012: pSphere3
+    400014: pSphere4
+    400016: transform1
+    400018: transform2
+    400020: transform3
+    400022: transform4
+    400024: transform5
+    400026: transform6
+    2300000: pCylinder3
+    3300000: pCylinder3
+    4300000: pCylinder3
+    9500000: //RootNode
   materials:
     importMaterials: 1
     materialName: 0
@@ -44,7 +61,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1.5
+    globalScale: 6
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
@@ -78,7 +95,7 @@ ModelImporter:
     rootMotionBoneName: 
     hasTranslationDoF: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

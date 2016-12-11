@@ -54,3 +54,9 @@ MonoBehaviour:
   spawnable:
   - {fileID: 1000010950312758, guid: ad8e69a9db6072f4cb416b11d15ab0c3, type: 2}
   - {fileID: 1000011060271780, guid: e7a3ddb05691d50418041c4e4e69f96a, type: 2}
+  - {fileID: 1000010048188248, guid: dd3b0d79a4f31044886c4d42231fae5a, type: 2}
+  - {fileID: 1000010781477798, guid: 78c4203183182a14cb8ae355a6d8f215, type: 2}
+  - {fileID: 1000011253237700, guid: ce8e8622f2b39d445a435ad716e28e1d, type: 2}
+  - {fileID: 1000011609895462, guid: a583fb1f0649bce45aeb38aac399cf55, type: 2}
+  - {fileID: 1000014199852586, guid: ad253cc3d7c462342b04510150d1ca0a, type: 2}
+  spawnFrame: {fileID: 0}

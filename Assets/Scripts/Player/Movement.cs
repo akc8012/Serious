@@ -19,6 +19,7 @@ public class Movement : MonoBehaviour
 	Vector3 lastForward;
 	Vector3 lastRight;
 	float maxSpeed;
+	float startY;
 
 	bool canMove = true;
 	public bool CanMove { get { return canMove; } }
@@ -27,6 +28,7 @@ public class Movement : MonoBehaviour
 	{
 		controller = GetComponent<CharacterController>();
 		maxSpeed = maxWalkSpeed;
+		startY = transform.position.y;
 	}
 
 	void Update()
@@ -58,6 +60,13 @@ public class Movement : MonoBehaviour
 		velocity *= speed;
 
 		controller.Move(velocity * Time.deltaTime);
+
+		Vector3 pos = transform.position;
+		if (pos.y != startY)
+		{
+			pos.y = startY;
+			transform.position = pos;
+		}
 	}
 
 	void SpeedUp()

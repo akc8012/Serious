@@ -7,6 +7,8 @@ public class ObjSpawn : MonoBehaviour
 	GameObject[] spawnable;
 	[SerializeField]
 	Moveable spawnFrame;
+	[SerializeField]
+	bool randomizeYrotation = true;
 
 	void Start()
 	{
@@ -19,6 +21,9 @@ public class ObjSpawn : MonoBehaviour
 			GameObject obj = (GameObject)Instantiate(spawnable[rnd], transform.position, transform.rotation);
 			obj.GetComponent<Selectable>().SetFloorPoint(transform.position);
 			obj.transform.parent = transform.parent;
+
+			if (randomizeYrotation)
+				obj.transform.rotation = Quaternion.Euler(obj.transform.rotation.x, Random.Range(0, 360), obj.transform.rotation.z);
 
 			if (spawnFrame)
 			{

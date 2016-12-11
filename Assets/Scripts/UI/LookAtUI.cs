@@ -38,6 +38,7 @@ public class LookAtUI : MonoBehaviour
 
 		if (lookingAt.IsHarmful)
 		{
+			ScoreManager.instance.RemoveHarmfulObject(lookingAt.gameObject.name);
 			Destroy(lookingAt.gameObject);
 			ScoreManager.instance.ChangeScore(10);
 			pointsText.color = green;

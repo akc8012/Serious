@@ -24,6 +24,9 @@ public class ObjSpawn : MonoBehaviour
 			obj.GetComponent<Selectable>().SetFloorPoint(transform.position);
 			obj.transform.parent = transform.parent;
 
+			if (obj.GetComponent<Selectable>().IsHarmful)
+				ScoreManager.instance.AddHarmfulObject(obj.name);
+
 			if (randomizeYrotation)
 				obj.transform.rotation = Quaternion.Euler(obj.transform.rotation.x, Random.Range(0, 360), obj.transform.rotation.z);
 

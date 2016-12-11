@@ -9,6 +9,8 @@ public class ObjSpawn : MonoBehaviour
 	Moveable spawnFrame;
 	[SerializeField]
 	bool randomizeYrotation = true;
+	[SerializeField]
+	bool insideOutlet = false;
 
 	void Start()
 	{
@@ -30,11 +32,12 @@ public class ObjSpawn : MonoBehaviour
 				spawnFrame.SetBehindFrame(obj);
 				obj.SetActive(false);
 			}
+
+			if (insideOutlet)
+			{
+				GameObject.Find("VisibilityTrigger").GetComponent<VisibilityTrigger>().AddToGroupB(obj);
+				obj.SetActive(false);
+			}
 		}
-	}
-
-	void Update()
-	{
-
 	}
 }

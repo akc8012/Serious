@@ -39,7 +39,12 @@ public class VisibilityTrigger : MonoBehaviour
 	{
 		for (int i = 0; i < group.Length; i++)
 		{
-			group[i].SetActive(enable);
+			if (group[i]) group[i].SetActive(enable);
 		}
+	}
+
+	public void AddToGroupB(GameObject obj)
+	{
+		groupB[groupB.Length-1] = obj;
 	}
 }

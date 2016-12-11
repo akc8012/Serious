@@ -136,4 +136,24 @@ public class ScoreManager : MonoBehaviour
 			}
 		}
 	}
+
+	List<string> GetObjects(List<HarmfulObject> list)
+	{
+		List<string> names = new List<string>();
+
+		for (int i = 0; i < list.Count; i++)
+			names.Add(list[i].text);
+
+		return names;
+	}
+
+	public List<string> GetRemainingObjects()
+	{
+		return GetObjects(remainingObjects);
+	}
+
+	public List<string> GetFoundObjects()
+	{
+		return GetObjects(foundObjects);
+	}
 }

@@ -7,15 +7,23 @@ public class TitleUI : MonoBehaviour
 {
 	[SerializeField]
 	Button startButt;
+	[SerializeField]
+	Button quitButt;
 
 	void Start()
 	{
 		startButt.onClick.AddListener(StartClicked);
+		quitButt.onClick.AddListener(QuitClicked);
 	}
 
 	void StartClicked()
 	{
 		SceneManager.LoadScene(1, LoadSceneMode.Single);
+	}
+
+	void QuitClicked()
+	{
+		Application.Quit();
 	}
 
 	void Update()

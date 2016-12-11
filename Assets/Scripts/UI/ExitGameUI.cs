@@ -19,7 +19,7 @@ public class ExitGameUI : MonoBehaviour
 	void Start()
 	{
 		canvasGroup = GetComponent<CanvasGroup>();
-		exitButton.onClick.AddListener(ExitRoom);
+		exitButton.onClick.AddListener(EndGame);
 		stayButton.onClick.AddListener(StayInRoom);
 	}
 
@@ -27,15 +27,18 @@ public class ExitGameUI : MonoBehaviour
 	{
 		if (Input.GetKeyDown(KeyCode.Escape) && !isVisible && 
 		GameStateManager.instance.CurrentState == GameStateManager.State.Free)
-			SetIsVisible(true);
+			SetIsVisible(true, true);
 	}
 	
-	void ExitRoom()
+	void EndGame()
 	{
 		if (!isVisible)
 			return;
 
-		SceneManager.LoadScene(0, LoadSceneMode.Single);
+		//SceneManager.LoadScene(0, LoadSceneMode.Single);
+
+		transform.parent.Find("Results Menu").GetComponent<ResultsMenuUI>().SetIsVisible(true);
+		SetIsVisible(false, false);
 	}
 
 	void StayInRoom()
@@ -43,14 +46,18 @@ public class ExitGameUI : MonoBehaviour
 		if (!isVisible)
 			return;
 
-		SetIsVisible(false);
+		SetIsVisible(false, true);
 	}
 
-	void SetIsVisible(bool enable)
+	void SetIsVisible(bool enable, bool changeState)
 	{
 		isVisible = enable;
 		canvasGroup.alpha = enable ? 1 : 0;
-		GameStateManager.instance.SetState(enable ? GameStateManager.State.InMenu : GameStateManager.State.Free);
-		exitText.SetActive(!enable);
+
+		if (changeState)
+		{
+			GameStateManager.instance.SetState(enable ? GameStateManager.State.InMenu : GameStateManager.State.Free);
+			exitText.SetActive(!enable);
+		}
 	}
 }

@@ -10,6 +10,7 @@ public class LookAtUI : MonoBehaviour
 	Button cancelButt;
 	[SerializeField]
 	Text pointsText;
+	Vector3 pointsTextStart;
 
 	CanvasGroup canvasGroup;
 	Selectable lookingAt;
@@ -23,6 +24,7 @@ public class LookAtUI : MonoBehaviour
 		canvasGroup = GetComponent<CanvasGroup>();
 		harmfulButt.onClick.AddListener(HarmfulClicked);
 		cancelButt.onClick.AddListener(CancelClicked);
+		pointsTextStart = pointsText.transform.position;
 	}
 
 	void Update()
@@ -39,7 +41,6 @@ public class LookAtUI : MonoBehaviour
 		if (lookingAt.IsHarmful)
 		{
 			ScoreManager.instance.RemoveHarmfulObject(lookingAt.gameObject.name);
-			//Destroy(lookingAt.gameObject);
 			lookingAt.ShrinkThenDie();
 			ObjectClicked(1000, green);
 		}
@@ -88,7 +89,19 @@ public class LookAtUI : MonoBehaviour
 	IEnumerator ShowPointsTextForABit()
 	{
 		pointsText.gameObject.SetActive(true);
-		yield return new WaitForSeconds(1);
+		Vector3 pos = pointsText.transform.position;
+		float target = Screen.height-50;
+		float t = 0.0f;
+
+		while (t < 1)
+		{
+			pos.y += (target - pos.y) * (t*t);
+			pointsText.transform.position = pos;
+			t += 0.3f * Time.deltaTime;
+			
+			yield return null;
+		}
 		pointsText.gameObject.SetActive(false);
+		pointsText.transform.position = pointsTextStart;
 	}
 }

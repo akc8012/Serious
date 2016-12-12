@@ -1127,7 +1127,7 @@ MonoBehaviour:
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: 'Hammer (1)
 
@@ -2299,7 +2299,7 @@ MonoBehaviour:
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: 'Hammer (1)
 
@@ -3746,7 +3746,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 10, y: -276}
-  m_SizeDelta: {x: 426.7, y: 104}
+  m_SizeDelta: {x: 426.7, y: 185.1}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!224 &224000014160479398
 RectTransform:
@@ -3782,7 +3782,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 10, y: -126.1}
-  m_SizeDelta: {x: 426.7, y: 104}
+  m_SizeDelta: {x: 426.7, y: 111.9}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!224 &224000014260109068
 RectTransform:

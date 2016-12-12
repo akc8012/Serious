@@ -55,3 +55,9 @@ MonoBehaviour:
   - {fileID: 1000013849092140, guid: 89742ce11883ced42ac85bef5008d9a2, type: 2}
   - {fileID: 1000011615998680, guid: 61871c7e7b506b9459538f02060e19cf, type: 2}
   - {fileID: 1000011837758402, guid: 71a64aa4360b49a4ebca7eeb4c778dd3, type: 2}
+  - {fileID: 1000012514727370, guid: f716b6580a2fee54ab3bf329face8dd8, type: 2}
+  - {fileID: 1000012689795396, guid: 75ea3415b07be2042b1e72657634a8fb, type: 2}
+  - {fileID: 1000011210232398, guid: 85853c13011c3a544887e1b74ae4b5ed, type: 2}
+  spawnFrame: {fileID: 0}
+  randomizeYrotation: 1
+  insideOutlet: 0

@@ -57,7 +57,7 @@ GameObject:
   - 54: {fileID: 54000012021859344}
   - 114: {fileID: 114000014271310824}
   m_Layer: 0
-  m_Name: Selectable Pin
+  m_Name: Selectable Tack
   m_TagString: Selectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

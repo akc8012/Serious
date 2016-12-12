@@ -4,8 +4,6 @@ using System.Collections;
 
 public class Pointer : MonoBehaviour
 {
-	public static int size;
-
 	Image image;
 	bool isHovering = false;
 	public bool IsHovering { get { return isHovering; } }
@@ -13,7 +11,6 @@ public class Pointer : MonoBehaviour
 	void Awake()
 	{
 		image = GetComponent<Image>();
-		size = (int)image.rectTransform.rect.width;		// must be in Awake to send to Selector's Start
 	}
 
 	void Update()

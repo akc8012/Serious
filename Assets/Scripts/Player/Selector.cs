@@ -9,60 +9,49 @@ public class Selector : MonoBehaviour
 	Camera cam;
 	Pointer pointer;
 	GameObject lastObjRef;
-	int pSize;
 
 	void Start()
 	{
 		cam = GetComponent<Camera>();
 		pointer = GameObject.FindWithTag("Pointer").GetComponent<Pointer>();
-		pSize = Pointer.size/2;     // must be in start to recieve after Pointer's Awake
 	}
 
 	void Update()
 	{
 		RaycastHit hit;
-		Ray[] rays = new Ray[4]
-		{
-			cam.ScreenPointToRay(new Vector3(Screen.width/2 - pSize, Screen.height/2 - pSize)),
-			cam.ScreenPointToRay(new Vector3(Screen.width/2 + pSize, Screen.height/2 - pSize)),
-			cam.ScreenPointToRay(new Vector3(Screen.width/2 - pSize, Screen.height/2 + pSize)),
-			cam.ScreenPointToRay(new Vector3(Screen.width/2 + pSize, Screen.height/2 + pSize))
-		};
+
+		Ray ray = cam.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
 
 		bool setHover = false;
 
-		for (int i = 0; i < 4; i++)
+		if (Physics.Raycast(ray, out hit))
 		{
-			if (Physics.Raycast(rays[i], out hit))
+			Transform objectHit = hit.transform;
+
+			if ((objectHit.tag == "Selectable" || objectHit.tag == "Moveable") && 
+				Vector3.Distance(transform.position, objectHit.position) < maxDistance)
 			{
-				Transform objectHit = hit.transform;
+				setHover = true;
 
-				if ((objectHit.tag == "Selectable" || objectHit.tag == "Moveable") && 
-					Vector3.Distance(transform.position, objectHit.position) < maxDistance)
+				if (lastObjRef != null && lastObjRef != objectHit.gameObject)
 				{
-					setHover = true;
+					lastObjRef.GetComponent<Glowable>().OffHover();
+					objectHit.gameObject.GetComponent<Glowable>().OnHover();
+				}
 
-					if (lastObjRef != null && lastObjRef != objectHit.gameObject)
-					{
-						lastObjRef.GetComponent<Glowable>().OffHover();
-						objectHit.gameObject.GetComponent<Glowable>().OnHover();
-					}
+				lastObjRef = objectHit.gameObject;
 
-					lastObjRef = objectHit.gameObject;
-
-					if (objectHit.tag == "Selectable")
-					{
-						if (Input.GetMouseButtonDown(0) &&
-						GameStateManager.instance.CurrentState == GameStateManager.State.Free)
-							SelectObject(lastObjRef);
-					}
-					if (objectHit.tag == "Moveable")
-					{
-						if (Input.GetMouseButtonDown(0) &&
-						GameStateManager.instance.CurrentState == GameStateManager.State.Free)
-							SetMoveableObject(lastObjRef);
-					}
-					break;
+				if (objectHit.tag == "Selectable")
+				{
+					if (Input.GetMouseButtonDown(0) &&
+					GameStateManager.instance.CurrentState == GameStateManager.State.Free)
+						SelectObject(lastObjRef);
+				}
+				if (objectHit.tag == "Moveable")
+				{
+					if (Input.GetMouseButtonDown(0) &&
+					GameStateManager.instance.CurrentState == GameStateManager.State.Free)
+						SetMoveableObject(lastObjRef);
 				}
 			}
 		}

@@ -18,6 +18,7 @@ public class TitleUI : MonoBehaviour
 
 	void StartClicked()
 	{
+		SoundManager.instance.PlayRandomMusic();
 		SoundManager.instance.PlaySound(SoundManager.instance.gameStartClick);
 		SceneManager.LoadScene(1, LoadSceneMode.Single);
 	}

@@ -34,12 +34,14 @@ public class ResultsMenuUI : MonoBehaviour
 	void YesClicked()
 	{
 		SoundManager.instance.PlaySound(SoundManager.instance.gameStartClick);
+		SoundManager.instance.PlayRandomMusic();
 		SceneManager.LoadScene(1, LoadSceneMode.Single);
 	}
 
 	void NoClicked()
 	{
 		SoundManager.instance.PlaySound(SoundManager.instance.UIclickNeg);
+		SoundManager.instance.StopMusic();
 		SceneManager.LoadScene(0, LoadSceneMode.Single);
 	}
 

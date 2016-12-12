@@ -985,11 +985,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Hammer (1)
-
-    Memes (3)
-
-    Butts (4)'
+  m_Text: 
 --- !u!114 &114000010212306322
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1200,11 +1196,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: '-5 points
-
-    -5 points
-
-    -5 points'
+  m_Text: 
 --- !u!114 &114000010653976470
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1303,7 +1295,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: +10 points
+  m_Text: +100 points
 --- !u!114 &114000010776468848
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1855,7 +1847,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: -3 points
+  m_Text: -50 points
 --- !u!114 &114000012016969416
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2372,11 +2364,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Hammer (1)
-
-    Memes (3)
-
-    Butts (4)'
+  m_Text: 
 --- !u!114 &114000013635847180
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2436,7 +2424,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: +3 points
+  m_Text: +100 points
 --- !u!114 &114000013696371900
 MonoBehaviour:
   m_ObjectHideFlags: 1

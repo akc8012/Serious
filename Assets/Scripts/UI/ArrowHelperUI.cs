@@ -56,7 +56,7 @@ public class ArrowHelperUI : MonoBehaviour
 
 	IEnumerator ArrowFinish(int whichText)
 	{
-		ScoreManager.instance.ChangeScore(whichText * 3);
+		ScoreManager.instance.ChangeScore(whichText >= 0 ? 100 : -50);
 		Text changeText = whichText > 0 ? greenText : redText;
 		StartCoroutine(GlowArrow(whichText > 0 ? greenArrowGlow : redArrowGlow));
 

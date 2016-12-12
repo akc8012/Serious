@@ -28,8 +28,7 @@ public class Selector : MonoBehaviour
 		{
 			GameObject objectHit = hit.transform.gameObject;
 
-			if ((objectHit.tag == "Selectable" || objectHit.tag == "Moveable") &&
-				Vector3.Distance(transform.position, objectHit.transform.position) < maxDistance)
+			if (CanSelectObject(objectHit))
 			{
 				setHover = true;
 
@@ -68,6 +67,22 @@ public class Selector : MonoBehaviour
 				lastObjRef = null;
 			}
 		}
+	}
+
+	bool CanSelectObject(GameObject objectHit)
+	{
+		bool hasTag = objectHit.tag == "Selectable" || objectHit.tag == "Moveable";
+		if (!hasTag) return false;
+		bool farAwayEnough = Vector3.Distance(transform.position, objectHit.transform.position) < maxDistance;
+		if (!farAwayEnough) return false;
+
+		bool canSelect = true;
+		Selectable selectable = objectHit.GetComponent<Selectable>();
+		if (selectable)
+			canSelect = selectable.IsSelectable;
+
+		if (!canSelect) return false;
+		return true;
 	}
 
 	void SelectObject(GameObject obj)

@@ -150,7 +150,7 @@ public class ScoreManager : MonoBehaviour
 	
 	public string GetAndSetFinalScore()
 	{
-		int deduction = remainingObjects.Count*5;
+		int deduction = remainingObjects.Count*500;
 		return ChangeScore(-deduction);
 	}
 }

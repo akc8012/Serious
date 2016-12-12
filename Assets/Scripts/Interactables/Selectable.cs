@@ -12,6 +12,8 @@ public class Selectable : MonoBehaviour
 	float distFromCamera = 1;
 	[SerializeField]
 	Vector3 rotationStart;
+	[SerializeField]
+	AnimationCurve dieCurve;
 
 	bool isSelected = false;
 	Vector2 firstDown = -Vector2.one;
@@ -25,6 +27,8 @@ public class Selectable : MonoBehaviour
 	Glowable glowable;
 	bool isFlying = false;
 	public bool IsFlying { get { return isFlying; } }
+	bool isSelectable = true;
+	public bool IsSelectable { get { return isSelectable; } }
 	Vector3 startPos;
 	Quaternion startRot;
 
@@ -99,8 +103,7 @@ public class Selectable : MonoBehaviour
 
 	public void FlyToPlayer()
 	{
-		if (isFlying)
-			return;
+		if (isFlying || !isSelectable) return;
 
 		glowable.OffHover();
 		Vector3 loc = cam.ScreenToWorldPoint(new Vector3(Screen.width/2, Screen.height/2, distFromCamera));
@@ -109,8 +112,7 @@ public class Selectable : MonoBehaviour
 
 	public void FlyToStart()
 	{
-		if (isFlying)
-			return;
+		if (isFlying || !isSelectable) return;
 
 		StartCoroutine(FlyToRoutine(startPos, startRot, false));
 		ResetValues();
@@ -140,5 +142,27 @@ public class Selectable : MonoBehaviour
 			isSelected = true;
 			rb.isKinematic = false;
 		}
+	}
+
+	public void ShrinkThenDie()
+	{
+		glowable.SetIsGlowable(false);
+		isSelectable = false;
+		StartCoroutine(ShrinkThenDieRoutine());
+	}
+
+	IEnumerator ShrinkThenDieRoutine()
+	{
+		float time = 0.0f;
+		float speed = 2f;
+
+		while (time <= 1)
+		{
+			float newScale = dieCurve.Evaluate(time += (speed * Time.deltaTime));
+			transform.localScale = Vector3.one * newScale;
+			
+			yield return null;
+		}
+		Destroy(gameObject);
 	}
 }

@@ -218,4 +218,20 @@ MonoBehaviour:
   flySpeed: 3
   distFromCamera: 0.45
   rotationStart: {x: -90, y: 0, z: 0}
+  dieCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 1.1110541
+      outSlope: 1.1110541
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: -4.3672333
+      outSlope: -4.3672333
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
   spinSpeed: 0.75

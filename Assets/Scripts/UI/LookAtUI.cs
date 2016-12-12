@@ -39,22 +39,25 @@ public class LookAtUI : MonoBehaviour
 		if (lookingAt.IsHarmful)
 		{
 			ScoreManager.instance.RemoveHarmfulObject(lookingAt.gameObject.name);
-			Destroy(lookingAt.gameObject);
-			ScoreManager.instance.ChangeScore(10);
-			pointsText.color = green;
-			pointsText.text = "+10 points";
-			StartCoroutine(ShowPointsTextForABit());
+			//Destroy(lookingAt.gameObject);
+			lookingAt.ShrinkThenDie();
+			ObjectClicked(1000, green);
 		}
 		else
 		{
-			ScoreManager.instance.ChangeScore(-10);
 			lookingAt.FlyToStart();
-			pointsText.color = red;
-			pointsText.text = "-10 points";
-			StartCoroutine(ShowPointsTextForABit());
+			ObjectClicked(-250, red);
 		}
 
 		LeaveLookAtUI();
+	}
+
+	void ObjectClicked(int scoreChange, Color pointsColor)
+	{
+		ScoreManager.instance.ChangeScore(scoreChange);
+		pointsText.color = pointsColor;
+		pointsText.text = (scoreChange >= 0 ? "+" : "") + scoreChange + " points";
+		StartCoroutine(ShowPointsTextForABit());
 	}
 
 	void CancelClicked()

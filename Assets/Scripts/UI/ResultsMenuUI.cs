@@ -55,7 +55,7 @@ public class ResultsMenuUI : MonoBehaviour
 			textBox.text += "\n";
 
 			if (textBox == missedText)
-				missedPointsText.text += "-5 points\n";
+				missedPointsText.text += "-500 points\n";
 		}
 	}
 

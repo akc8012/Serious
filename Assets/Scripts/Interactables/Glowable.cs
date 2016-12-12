@@ -7,6 +7,8 @@ public class Glowable : MonoBehaviour
 	Color[] startCols;
 	bool isHovered = false;
 	public bool IsHovered { get { return isHovered; } }
+	bool isGlowable = true;
+	public bool IsGlowable { get { return isGlowable; } }
 
 	void Start()
 	{
@@ -19,6 +21,7 @@ public class Glowable : MonoBehaviour
 
 	public void OnHover()
 	{
+		if (!isGlowable) return;
 		for (int i = 0; i < rends.Length; i++)
 			rends[i].material.SetColor("_Color", rends[i].material.GetColor("_Color") * 2);
 		isHovered = true;
@@ -26,8 +29,16 @@ public class Glowable : MonoBehaviour
 
 	public void OffHover()
 	{
+		if (!isGlowable) return;
 		for (int i = 0; i < rends.Length; i++)
 			rends[i].material.SetColor("_Color", startCols[i]);
 		isHovered = false;
+	}
+
+	public void SetIsGlowable(bool enable)
+	{
+		isGlowable = enable;
+		if (!isGlowable)
+			OffHover();
 	}
 }

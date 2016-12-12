@@ -70,7 +70,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011699043092}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.0096, z: 0}
+  m_LocalPosition: {x: 0, y: -0.0201, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -84,7 +84,7 @@ Transform:
   m_GameObject: {fileID: 1000010625243104}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 4000012713858194}
@@ -96,8 +96,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011837758402}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.88, y: 5.774, z: 3.29}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalPosition: {x: -0.88, y: 5.774, z: -6.412}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000012575643476}
@@ -172,8 +172,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.040037014, y: 0.040686324, z: 0.05533094}
-  m_Center: {x: 0, y: 0.00057029724, z: 0.0014083385}
+  m_Size: {x: 0.046987675, y: 0.048595563, z: 0.07953803}
+  m_Center: {x: 0.0003594756, y: 0.0006904602, z: 0.000089645386}
 --- !u!114 &114000010037590556
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -189,6 +189,22 @@ MonoBehaviour:
   flySpeed: 3
   distFromCamera: 0.4
   rotationStart: {x: -90, y: 0, z: 0}
+  dieCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 1.1110541
+      outSlope: 1.1110541
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: -4.3672333
+      outSlope: -4.3672333
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
   spinSpeed: 0.75
 --- !u!114 &114000014271310824
 MonoBehaviour:

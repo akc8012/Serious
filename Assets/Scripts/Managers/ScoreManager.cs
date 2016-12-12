@@ -57,28 +57,19 @@ public class ScoreManager : MonoBehaviour
 		}
 	}
 
-	void Update()
-	{
-		if (Input.GetKeyDown(KeyCode.R))
-		{
-			for (int i = 0; i < remainingObjects.Count; i++)
-				print("Remaining: " + remainingObjects[i].text);
-		}
-
-		if (Input.GetKeyDown(KeyCode.F))
-		{
-			for (int i = 0; i < foundObjects.Count; i++)
-				print("Found: " + foundObjects[i].text);
-		}
-	}
-
-	public void ChangeScore(int points)
+	public string ChangeScore(int points)
 	{
 		score += points;
 		if (score <= 0) score = 0;
 
 		if (scoreText)
-			scoreText.text = "Score: " + score.ToString("00000000");
+		{
+			string formattedText = score.ToString("00000000");
+			scoreText.text = "Score: " + formattedText;
+			return formattedText;
+		}
+		else
+			return "";
 	}
 
 	string GetRealName(string objName)
@@ -155,5 +146,11 @@ public class ScoreManager : MonoBehaviour
 	public List<string> GetFoundObjects()
 	{
 		return GetObjects(foundObjects);
+	}
+	
+	public string GetAndSetFinalScore()
+	{
+		int deduction = remainingObjects.Count*5;
+		return ChangeScore(-deduction);
 	}
 }

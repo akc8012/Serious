@@ -15,6 +15,10 @@ public class ResultsMenuUI : MonoBehaviour
 	[SerializeField]
 	Text missedText;
 	[SerializeField]
+	Text missedPointsText;
+	[SerializeField]
+	Text finalScoreText;
+	[SerializeField]
 	Button yesButt;
 	[SerializeField]
 	Button noButt;
@@ -43,10 +47,15 @@ public class ResultsMenuUI : MonoBehaviour
 	{
 		textBox.text = "";
 		textBox.color = textStartColor;
+		missedPointsText.text = "";
+
 		for (int i = 0; i < names.Count; i++)
 		{
 			textBox.text += names[i];
 			textBox.text += "\n";
+
+			if (textBox == missedText)
+				missedPointsText.text += "-5 points\n";
 		}
 	}
 
@@ -55,16 +64,19 @@ public class ResultsMenuUI : MonoBehaviour
 		FillTextBox(foundText, ScoreManager.instance.GetFoundObjects());
 		FillTextBox(missedText, ScoreManager.instance.GetRemainingObjects());
 
+		Color darkGray = new Color(0.4f, 0.4f, 0.4f, 1);
 		if (foundText.text == "")
 		{
 			foundText.text = "You didn't find anything!";
-			foundText.color = Color.gray;
+			foundText.color = darkGray;
 		}
 		if (missedText.text == "")
 		{
 			missedText.text = "No harmful objects left!";
-			missedText.color = Color.gray;
+			missedText.color = darkGray;
 		}
+
+		finalScoreText.text = "Final score: " + ScoreManager.instance.GetAndSetFinalScore();
 	}
 
 	public void SetIsVisible(bool enable)

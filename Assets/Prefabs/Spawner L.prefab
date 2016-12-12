@@ -35,7 +35,7 @@ Transform:
   m_GameObject: {fileID: 1000012500272032}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.911, y: 6.055, z: -9.54}
-  m_LocalScale: {x: 0.14470565, y: 0.14470565, z: 0.14470565}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
@@ -60,3 +60,6 @@ MonoBehaviour:
   - {fileID: 1000011609895462, guid: a583fb1f0649bce45aeb38aac399cf55, type: 2}
   - {fileID: 1000014199852586, guid: ad253cc3d7c462342b04510150d1ca0a, type: 2}
   spawnFrame: {fileID: 0}
+  randomizeYrotation: 1
+  insideOutlet: 0
+  forceSpawn: 0

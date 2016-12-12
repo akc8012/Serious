@@ -26,46 +26,40 @@ public class Selector : MonoBehaviour
 
 		if (Physics.Raycast(ray, out hit))
 		{
-			Transform objectHit = hit.transform;
+			GameObject objectHit = hit.transform.gameObject;
 
-			if ((objectHit.tag == "Selectable" || objectHit.tag == "Moveable") && 
-				Vector3.Distance(transform.position, objectHit.position) < maxDistance)
+			if ((objectHit.tag == "Selectable" || objectHit.tag == "Moveable") &&
+				Vector3.Distance(transform.position, objectHit.transform.position) < maxDistance)
 			{
 				setHover = true;
 
-				if (lastObjRef != null && lastObjRef != objectHit.gameObject)
-				{
+				if (lastObjRef != null && lastObjRef != objectHit)
 					lastObjRef.GetComponent<Glowable>().OffHover();
-					objectHit.gameObject.GetComponent<Glowable>().OnHover();
-				}
 
-				lastObjRef = objectHit.gameObject;
+				if (!objectHit.GetComponent<Glowable>().IsHovered)
+				{
+					objectHit.GetComponent<Glowable>().OnHover();
+					if (!pointer.IsHovering) pointer.OnHover();
+				}
 
 				if (objectHit.tag == "Selectable")
 				{
 					if (Input.GetMouseButtonDown(0) &&
 					GameStateManager.instance.CurrentState == GameStateManager.State.Free)
-						SelectObject(lastObjRef);
+						SelectObject(objectHit);
 				}
 				if (objectHit.tag == "Moveable")
 				{
 					if (Input.GetMouseButtonDown(0) &&
 					GameStateManager.instance.CurrentState == GameStateManager.State.Free)
-						SetMoveableObject(lastObjRef);
+						SetMoveableObject(objectHit);
 				}
+
+				lastObjRef = objectHit;
 			}
 		}
 
-		if (setHover)
-		{
-			if (!pointer.IsHovering)
-			{
-				pointer.OnHover();
-				if (lastObjRef != null)
-					lastObjRef.GetComponent<Glowable>().OnHover();
-			}
-		}
-		else if (pointer.IsHovering)
+		if (!setHover && pointer.IsHovering)
 		{
 			pointer.OffHover();
 			if (lastObjRef != null)

@@ -11,12 +11,14 @@ public class ObjSpawn : MonoBehaviour
 	bool randomizeYrotation = true;
 	[SerializeField]
 	bool insideOutlet = false;
+	[SerializeField]
+	bool forceSpawn = false;
 
 	void Start()
 	{
 		int ifSpawn = Random.Range(0, 4);
 
-		if (ifSpawn >= 2)
+		if (ifSpawn >= 2 || forceSpawn)
 		{
 			int rnd = Random.Range(0, spawnable.Length);
 

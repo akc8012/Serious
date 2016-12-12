@@ -33,13 +33,13 @@ public class ResultsMenuUI : MonoBehaviour
 
 	void YesClicked()
 	{
-		// reload scene
+		SoundManager.instance.PlaySound(SoundManager.instance.gameStartClick);
 		SceneManager.LoadScene(1, LoadSceneMode.Single);
 	}
 
 	void NoClicked()
 	{
-		// go to scene 0
+		SoundManager.instance.PlaySound(SoundManager.instance.UIclickNeg);
 		SceneManager.LoadScene(0, LoadSceneMode.Single);
 	}
 

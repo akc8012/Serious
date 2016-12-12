@@ -46,7 +46,10 @@ public class PatientInfoUI : MonoBehaviour
 	void Update()
 	{
 		if (Input.GetMouseButtonDown(0) && isVisible)
+		{
+			SoundManager.instance.PlaySound(SoundManager.instance.UIclick);
 			SetIsVisible(false);
+		}
 	}
 
 	public void SetIsVisible(bool enable)

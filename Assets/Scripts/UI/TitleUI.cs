@@ -18,11 +18,13 @@ public class TitleUI : MonoBehaviour
 
 	void StartClicked()
 	{
+		SoundManager.instance.PlaySound(SoundManager.instance.gameStartClick);
 		SceneManager.LoadScene(1, LoadSceneMode.Single);
 	}
 
 	void QuitClicked()
 	{
+		SoundManager.instance.PlaySound(SoundManager.instance.UIclickNeg);
 		Application.Quit();
 	}
 

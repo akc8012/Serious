@@ -55,3 +55,5 @@ MonoBehaviour:
     type: 2}
   gameStateManager: {fileID: 1000013435620796, guid: b1b8d9a6768153940b1c6bc3b9facd4c,
     type: 2}
+  soundManager: {fileID: 1000011581267540, guid: d91a87587e9b34f41a995d680e739040,
+    type: 2}

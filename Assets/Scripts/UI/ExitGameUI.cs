@@ -25,27 +25,28 @@ public class ExitGameUI : MonoBehaviour
 
 	void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.Escape) && !isVisible && 
+		if (Input.GetKeyDown(KeyCode.Escape) && !isVisible &&
 		GameStateManager.instance.CurrentState == GameStateManager.State.Free)
+		{
+			SoundManager.instance.PlaySound(SoundManager.instance.UIclick);
 			SetIsVisible(true, true);
+		}
 	}
 	
 	void EndGame()
 	{
-		if (!isVisible)
-			return;
+		if (!isVisible) return;
 
-		//SceneManager.LoadScene(0, LoadSceneMode.Single);
-
+		SoundManager.instance.PlaySound(SoundManager.instance.UIclick);
 		transform.parent.Find("Results Menu").GetComponent<ResultsMenuUI>().SetIsVisible(true);
 		SetIsVisible(false, false);
 	}
 
 	void StayInRoom()
 	{
-		if (!isVisible)
-			return;
+		if (!isVisible) return;
 
+		SoundManager.instance.PlaySound(SoundManager.instance.UIclickNeg);
 		SetIsVisible(false, true);
 	}
 

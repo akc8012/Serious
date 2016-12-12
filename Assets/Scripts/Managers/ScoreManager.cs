@@ -57,8 +57,14 @@ public class ScoreManager : MonoBehaviour
 		}
 	}
 
-	public string ChangeScore(int points)
+	public string ChangeScore(int points, bool playSound = true)
 	{
+		if (playSound)
+		{
+			if (points >= 0) SoundManager.instance.PlaySound(SoundManager.instance.getPoints);
+			else SoundManager.instance.PlaySound(SoundManager.instance.losePoints, 3);
+		}
+
 		score += points;
 		if (score <= 0) score = 0;
 
@@ -151,6 +157,6 @@ public class ScoreManager : MonoBehaviour
 	public string GetAndSetFinalScore()
 	{
 		int deduction = remainingObjects.Count*500;
-		return ChangeScore(-deduction);
+		return ChangeScore(-deduction, false);
 	}
 }

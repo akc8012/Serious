@@ -15,17 +15,16 @@ public class TitleUI : MonoBehaviour
 		startButt.onClick.AddListener(StartClicked);
 		quitButt.onClick.AddListener(QuitClicked);
 	}
-
+	
 	void StartClicked()
 	{
-		SoundManager.instance.PlayRandomMusic();
 		SoundManager.instance.PlaySound(SoundManager.instance.gameStartClick);
-		SceneManager.LoadScene(1, LoadSceneMode.Single);
+		transform.Find("White Fade").GetComponent<SceneTransitionUI>().FadeIn(1);
 	}
 
 	void QuitClicked()
 	{
-		SoundManager.instance.PlaySound(SoundManager.instance.UIclickNeg);
+		SoundManager.instance.PlaySound(SoundManager.instance.UIclickNeg, 3);
 		Application.Quit();
 	}
 

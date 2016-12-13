@@ -89,7 +89,7 @@ public class Selector : MonoBehaviour
 	{
 		if (!obj.GetComponent<Selectable>().IsFlying)
 		{
-			SoundManager.instance.PlaySound(SoundManager.instance.objClick);
+			SoundManager.instance.PlaySound(SoundManager.instance.objClick, 2);
 			obj.GetComponent<Selectable>().FlyToPlayer();
 			GameStateManager.instance.SetState(GameStateManager.State.LookAt);
 		}

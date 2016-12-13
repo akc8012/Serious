@@ -57,8 +57,8 @@ public class LookAtUI : MonoBehaviour
 
 	void ObjectClicked(int scoreChange, Color pointsColor)
 	{
-		SoundManager.instance.PlaySound(SoundManager.instance.UIclick);
 		ScoreManager.instance.ChangeScore(scoreChange);
+		SoundManager.instance.PlaySound(SoundManager.instance.UIclick);
 		pointsText.color = pointsColor;
 		pointsText.text = (scoreChange >= 0 ? "+" : "") + scoreChange + " points";
 		StartCoroutine("AnimatePointsText");
@@ -68,7 +68,7 @@ public class LookAtUI : MonoBehaviour
 	{
 		if (!isVisible) return;
 
-		SoundManager.instance.PlaySound(SoundManager.instance.UIclickNeg);
+		SoundManager.instance.PlaySound(SoundManager.instance.UIclickNeg, 3);
 		lookingAt.FlyToStart();
 		LeaveLookAtUI();
 	}

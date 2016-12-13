@@ -48,7 +48,7 @@ public class SoundManager : MonoBehaviour
 			soundState++;
 			if (soundState >= SoundState.Count)
 				soundState = 0;
-			print(soundState);
+			
 			if (soundState == SoundState.AllPlaying)
 				musicSource.UnPause();
 			else

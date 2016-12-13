@@ -28952,11 +28952,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114000011289996820, guid: f564944e130fc934592b7589220a868a,
-        type: 2}
-      propertyPath: pointsCurve.m_Curve.Array.size
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 224000010212500534, guid: f564944e130fc934592b7589220a868a,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -29046,61 +29041,6 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000011289996820, guid: f564944e130fc934592b7589220a868a,
-        type: 2}
-      propertyPath: pointsCurve.m_Curve.Array.data[0].inSlope
-      value: 0.99
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000011289996820, guid: f564944e130fc934592b7589220a868a,
-        type: 2}
-      propertyPath: pointsCurve.m_Curve.Array.data[0].outSlope
-      value: 0.99
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000011289996820, guid: f564944e130fc934592b7589220a868a,
-        type: 2}
-      propertyPath: pointsCurve.m_Curve.Array.data[0].tangentMode
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000011289996820, guid: f564944e130fc934592b7589220a868a,
-        type: 2}
-      propertyPath: pointsCurve.m_Curve.Array.data[1].time
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000011289996820, guid: f564944e130fc934592b7589220a868a,
-        type: 2}
-      propertyPath: pointsCurve.m_Curve.Array.data[1].value
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000011289996820, guid: f564944e130fc934592b7589220a868a,
-        type: 2}
-      propertyPath: pointsCurve.m_Curve.Array.data[1].inSlope
-      value: 0.99
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000011289996820, guid: f564944e130fc934592b7589220a868a,
-        type: 2}
-      propertyPath: pointsCurve.m_Curve.Array.data[1].outSlope
-      value: 0.99
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000011289996820, guid: f564944e130fc934592b7589220a868a,
-        type: 2}
-      propertyPath: pointsCurve.m_Curve.Array.data[1].tangentMode
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000011289996820, guid: f564944e130fc934592b7589220a868a,
-        type: 2}
-      propertyPath: pointsCurve.m_RotationOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000011289996820, guid: f564944e130fc934592b7589220a868a,
-        type: 2}
-      propertyPath: pointsCurve.m_Curve.Array.data[0].time
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000011289996820, guid: f564944e130fc934592b7589220a868a,
-        type: 2}
-      propertyPath: pointsCurve.m_Curve.Array.data[0].value
-      value: 0.01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f564944e130fc934592b7589220a868a, type: 2}

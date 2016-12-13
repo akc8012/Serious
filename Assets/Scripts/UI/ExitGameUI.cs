@@ -46,7 +46,7 @@ public class ExitGameUI : MonoBehaviour
 	{
 		if (!isVisible) return;
 
-		SoundManager.instance.PlaySound(SoundManager.instance.UIclickNeg);
+		SoundManager.instance.PlaySound(SoundManager.instance.UIclickNeg, 3);
 		SetIsVisible(false, true);
 	}
 

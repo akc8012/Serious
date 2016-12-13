@@ -163,6 +163,7 @@ public class Selectable : MonoBehaviour
 			
 			yield return null;
 		}
+		SoundManager.instance.PlaySound(SoundManager.instance.pop, 2);
 		Destroy(gameObject);
 	}
 }

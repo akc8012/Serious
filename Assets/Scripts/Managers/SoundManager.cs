@@ -17,6 +17,7 @@ public class SoundManager : MonoBehaviour
 	public AudioClip getPoints;
 	public AudioClip losePoints;
 	public AudioClip gameStartClick;
+	public AudioClip pop;
 
 	public AudioClip music0;
 	public AudioClip music1;

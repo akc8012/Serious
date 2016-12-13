@@ -53,7 +53,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.75
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -126,7 +126,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -209,6 +209,7 @@ MonoBehaviour:
   getPoints: {fileID: 8300000, guid: 30f3d048699fc204282c149163dd578b, type: 3}
   losePoints: {fileID: 8300000, guid: 769815db112d3b34b9e5db8ccb83c47f, type: 3}
   gameStartClick: {fileID: 8300000, guid: 5fc643ab73d4fd54fafd679433b57ee8, type: 3}
+  pop: {fileID: 8300000, guid: 811cc14551563ee4b8c68f5e485aba10, type: 3}
   music0: {fileID: 8300000, guid: 8e3e17907ad314f489d8d921112ebf0a, type: 3}
   music1: {fileID: 8300000, guid: 16bcb53942fbb33498b410c2a8b430c4, type: 3}
   music2: {fileID: 8300000, guid: 1363e8ce6c22c7444ada96a749c4a2b4, type: 3}

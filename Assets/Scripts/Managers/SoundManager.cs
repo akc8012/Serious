@@ -23,6 +23,7 @@ public class SoundManager : MonoBehaviour
 	public AudioClip music1;
 	public AudioClip music2;
 	AudioClip[] musics;
+	int lastMusic = -1;
 
 	enum SoundState { AllPlaying, OnlySfx, Nothing, Count }
 	SoundState soundState = SoundState.AllPlaying;
@@ -67,7 +68,15 @@ public class SoundManager : MonoBehaviour
 	{
 		if (soundState == SoundState.AllPlaying)
 		{
-			musicSource.clip = musics[Random.Range(0, musics.Length)];
+			int newMusic = lastMusic;
+			do
+			{
+				newMusic = Random.Range(0, musics.Length);
+			}
+			while (newMusic == lastMusic);
+
+			musicSource.clip = musics[newMusic];
+			lastMusic = newMusic;
 			musicSource.Play();
 		}
 	}

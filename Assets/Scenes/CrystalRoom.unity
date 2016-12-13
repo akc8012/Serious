@@ -9672,11 +9672,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 14080931}
     m_Modifications:
-    - target: {fileID: 114000010161989636, guid: b69df7b84fdb1f344ae3352e488d1b98,
-        type: 2}
-      propertyPath: spawnable.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4000010704709454, guid: b69df7b84fdb1f344ae3352e488d1b98, type: 2}
       propertyPath: m_LocalPosition.x
       value: 5.125
@@ -9719,47 +9714,6 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000010704709454, guid: b69df7b84fdb1f344ae3352e488d1b98, type: 2}
       propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000010161989636, guid: b69df7b84fdb1f344ae3352e488d1b98,
-        type: 2}
-      propertyPath: spawnable.Array.data[1]
-      value: 
-      objectReference: {fileID: 1000011615998680, guid: 61871c7e7b506b9459538f02060e19cf,
-        type: 2}
-    - target: {fileID: 114000010161989636, guid: b69df7b84fdb1f344ae3352e488d1b98,
-        type: 2}
-      propertyPath: spawnable.Array.data[2]
-      value: 
-      objectReference: {fileID: 1000011837758402, guid: 71a64aa4360b49a4ebca7eeb4c778dd3,
-        type: 2}
-    - target: {fileID: 114000010161989636, guid: b69df7b84fdb1f344ae3352e488d1b98,
-        type: 2}
-      propertyPath: spawnable.Array.data[3]
-      value: 
-      objectReference: {fileID: 1000012514727370, guid: f716b6580a2fee54ab3bf329face8dd8,
-        type: 2}
-    - target: {fileID: 114000010161989636, guid: b69df7b84fdb1f344ae3352e488d1b98,
-        type: 2}
-      propertyPath: spawnable.Array.data[4]
-      value: 
-      objectReference: {fileID: 1000012689795396, guid: 75ea3415b07be2042b1e72657634a8fb,
-        type: 2}
-    - target: {fileID: 114000010161989636, guid: b69df7b84fdb1f344ae3352e488d1b98,
-        type: 2}
-      propertyPath: spawnable.Array.data[5]
-      value: 
-      objectReference: {fileID: 1000011210232398, guid: 85853c13011c3a544887e1b74ae4b5ed,
-        type: 2}
-    - target: {fileID: 114000010161989636, guid: b69df7b84fdb1f344ae3352e488d1b98,
-        type: 2}
-      propertyPath: spawnable.Array.data[0]
-      value: 
-      objectReference: {fileID: 1000011210232398, guid: 85853c13011c3a544887e1b74ae4b5ed,
-        type: 2}
-    - target: {fileID: 114000010161989636, guid: b69df7b84fdb1f344ae3352e488d1b98,
-        type: 2}
-      propertyPath: forceSpawn
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -29040,6 +28994,46 @@ Prefab:
     - target: {fileID: 224000010212500534, guid: f564944e130fc934592b7589220a868a,
         type: 2}
       propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011289996820, guid: f564944e130fc934592b7589220a868a,
+        type: 2}
+      propertyPath: pointsCurve.m_Curve.Array.data[0].value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011289996820, guid: f564944e130fc934592b7589220a868a,
+        type: 2}
+      propertyPath: pointsCurve.m_Curve.Array.data[0].inSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011289996820, guid: f564944e130fc934592b7589220a868a,
+        type: 2}
+      propertyPath: pointsCurve.m_Curve.Array.data[0].outSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011289996820, guid: f564944e130fc934592b7589220a868a,
+        type: 2}
+      propertyPath: pointsCurve.m_Curve.Array.data[1].inSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011289996820, guid: f564944e130fc934592b7589220a868a,
+        type: 2}
+      propertyPath: pointsCurve.m_Curve.Array.data[1].outSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011289996820, guid: f564944e130fc934592b7589220a868a,
+        type: 2}
+      propertyPath: pointsCurve.m_Curve.Array.data[0].tangentMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011289996820, guid: f564944e130fc934592b7589220a868a,
+        type: 2}
+      propertyPath: pointsCurve.m_Curve.Array.data[1].tangentMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011744682342, guid: f564944e130fc934592b7589220a868a,
+        type: 2}
+      propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

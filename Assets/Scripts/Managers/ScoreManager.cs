@@ -10,6 +10,7 @@ public class ScoreManager : MonoBehaviour
 
 	int score = 0;
 	Text scoreText;
+	Canvas canvas;
 
 	class HarmfulObject
 	{
@@ -53,6 +54,8 @@ public class ScoreManager : MonoBehaviour
 
 				if (scoreText)
 					scoreText.text = "Score: " + score.ToString("00000000");
+
+				canvas = GameObject.FindWithTag("MainCanvas").GetComponent<Canvas>();
 			}
 		}
 	}
@@ -63,6 +66,7 @@ public class ScoreManager : MonoBehaviour
 		{
 			if (points >= 0) SoundManager.instance.PlaySound(SoundManager.instance.getPoints);
 			else SoundManager.instance.PlaySound(SoundManager.instance.losePoints, 3);
+			StartCoroutine(BounceScoreText(scoreText.transform, 0.9f));
 		}
 
 		score += points;
@@ -158,5 +162,28 @@ public class ScoreManager : MonoBehaviour
 	{
 		int deduction = remainingObjects.Count*500;
 		return ChangeScore(-deduction, false);
+	}
+
+	public float GetScoreFloor()
+	{
+		return Screen.height - (scoreText.GetComponent<RectTransform>().rect.height*canvas.scaleFactor)*2;
+	}
+
+	IEnumerator BounceScoreText(Transform pos, float heightMod = 1)
+	{
+		Vector3 startPos = pos.position;
+		Vector3 gravity = new Vector3(0, -1.4f * heightMod, 0);
+		Vector3 velocity = new Vector3(0, 7 * heightMod, 0);
+		float speed = 45;
+
+		while (pos.position.y > startPos.y + gravity.y)
+		{
+			velocity += gravity * Time.deltaTime * speed;
+			pos.position += velocity * Time.deltaTime * speed;
+
+			yield return null;
+		}
+
+		pos.position = startPos;
 	}
 }

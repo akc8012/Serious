@@ -11,10 +11,14 @@ public class SceneTransitionUI : MonoBehaviour
 	[SerializeField]
 	bool fadeOutOnStart = false;
 
-	void Start()
+	void Awake()
 	{
 		whiteImg = GetComponent<Image>();
+		if (fadeOutOnStart) whiteImg.color = new Color(whiteImg.color.r, whiteImg.color.b, whiteImg.color.g, 1);
+	}
 
+	void Start()
+	{
 		if (fadeOutOnStart)
 			FadeOut();
 	}
